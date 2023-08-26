@@ -1,6 +1,12 @@
 {
-  "name": "Next Boilerplate",
-  "short_name": "Boilerplate",
+  "name": "ETE Ariano Vilar Suassuna",
+  "description": "Site para a Escola Técnica Estadual Ariano Vilar Suassuna.",
+  "short_name": "ETE AVS",
+  "theme_color": "#D69E2E",
+  "background_color": "#1A365D",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
@@ -12,11 +18,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#FFFFFF",
-  "description": "Boilerplate for NextJS projects",
-  "background_color": "#FFFFFF",
-  "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait"
+  ]
 }
