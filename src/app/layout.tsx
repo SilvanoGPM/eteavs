@@ -1,8 +1,12 @@
+'use client';
+
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
 import { Providers } from './providers';
+import { Header } from '$components/header';
+import { Box, Flex } from '@chakra-ui/react';
 
 export const metadata: Metadata = {
   title: 'ETE Ariano Vilar Suassuna',
@@ -24,7 +28,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <NextTopLoader color="#D69E2E" />
 
-        <Providers>{children}</Providers>
+        <Providers>
+          <Flex maxW="1200px" mx="auto" direction="column" minH="100vh">
+            <Header />
+
+            <Box flex="1">{children}</Box>
+          </Flex>
+        </Providers>
       </body>
     </html>
   );
