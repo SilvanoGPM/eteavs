@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Center, Flex, useEventListener } from '@chakra-ui/react';
+import { Box, Center, Fade, Flex, useEventListener } from '@chakra-ui/react';
 
 import { useUIStore } from '$stores/ui';
 import { useScreenVersion } from '$hooks/use-screen-version';
@@ -29,7 +29,7 @@ export function Header() {
 
   if (!isLargeScreen) {
     return (
-      <>
+      <Fade in>
         <Logo pos="absolute" top="8" left="8" h="40px" />
 
         <Box
@@ -68,7 +68,7 @@ export function Header() {
         </Flex>
 
         <SidebarButtons sidebarIsOpen={sidebarIsOpen} />
-      </>
+      </Fade>
     );
   }
 
@@ -91,6 +91,8 @@ export function Header() {
         sx={headerBg}
       >
         <Flex
+          as={Fade}
+          in
           w="full"
           maxW="1200px"
           px="8"
@@ -103,3 +105,5 @@ export function Header() {
     </>
   );
 }
+
+export default Header;
