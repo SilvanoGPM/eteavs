@@ -12,6 +12,7 @@ export function BackgroundVideo() {
       left="0"
       w="full"
       h="100vh"
+      bg="blue.900"
     >
       <video autoPlay loop muted preload="metadata">
         <source src="/assets/bg.mp4#t=0.1" type="video/mp4" />
