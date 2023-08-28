@@ -5,7 +5,7 @@ export function BackgroundVideo() {
     <AspectRatio
       ratio={1}
       filter="auto"
-      brightness="0.1"
+      brightness="0.25"
       pos="absolute"
       zIndex="-1"
       top="0"

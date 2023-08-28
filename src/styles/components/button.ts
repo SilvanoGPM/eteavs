@@ -9,32 +9,32 @@ export const Button: ComponentStyleConfig = {
 
   variants: {
     solid: {
-      bg: 'yellow.500',
+      bg: 'blue.500',
       color: 'white',
 
       _hover: {
-        bg: 'yellow.700',
+        bg: 'blue.700',
       },
 
       _active: {
-        bg: 'yellow.800',
+        bg: 'blue.800',
       },
     },
 
     outline: {
-      bg: 'yellowAlpha.200',
-      borderColor: 'yellowAlpha.400',
-      color: 'yellow.500',
+      bg: 'blueAlpha.200',
+      borderColor: 'blue.500',
+      color: 'blue.500',
       fontWeight: '600',
 
       _hover: {
-        bg: 'yellowAlpha.300',
-        borderColor: 'yellowAlpha.400',
+        bg: 'blueAlpha.400',
+        borderColor: 'blue.600',
       },
 
       _active: {
-        bg: 'yellowAlpha.400',
-        borderColor: 'yellowAlpha.500',
+        bg: 'blueAlpha.500',
+        borderColor: 'blue.700',
       },
     },
   },

@@ -39,7 +39,7 @@ export function ActiveLink({
     isActive = true;
   }
 
-  const color = isActive ? 'yellow.500' : 'white';
+  const color = isActive ? 'blue.500' : 'white';
 
   return (
     <Link

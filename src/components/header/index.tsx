@@ -74,7 +74,7 @@ export function Header() {
 
   const headerBg = headerInTop
     ? { '&': { bg: 'transparent' } }
-    : glassmorphismContainer({ bg: 'blueAlpha.700' });
+    : glassmorphismContainer({ bg: 'blueAlpha.500' });
 
   return (
     <>

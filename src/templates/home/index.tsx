@@ -16,20 +16,22 @@ export function HomeTemplate() {
         zIndex="1"
         bottom="0"
         left="0"
-        pb={['10', '20']}
+        py={['10', '20']}
         color="white"
         overflow="hidden"
       >
         <Flex
-          w="full"
-          maxW="1200px"
-          mx="auto"
-          align="start"
           direction="column"
-          gap={['2', '2', '4']}
+          pos="relative"
+          w="full"
+          h="full"
+          maxW="1200px"
+          align="start"
+          mx="auto"
           px="8"
+          gap={['2', '2', '4']}
         >
-          <Heading textTransform="uppercase" color="yellow.500">
+          <Heading textTransform="uppercase" color="blue.500">
             <Text as="span" fontSize={['md', 'xl']} color="white">
               Escola Técnica Estadual
             </Text>{' '}
@@ -48,20 +50,19 @@ export function HomeTemplate() {
             <Button>Conhecer Mais</Button>
             <Button variant="outline">Contato</Button>
           </Flex>
+
+          <Image
+            src={studentImg.src}
+            alt="Student"
+            pos="absolute"
+            zIndex="2"
+            bottom={['-10', '-20']}
+            right="0"
+            maxW={['250px', '250px', '250px', '400px']}
+            display={['none', 'none', 'block']}
+          />
         </Flex>
       </Box>
-
-      <Image
-        src={studentImg.src}
-        alt="Student"
-        pos="absolute"
-        zIndex="2"
-        bottom="0"
-        right="0"
-        mr="8"
-        maxW={['300px', '250px', '250px', '400px']}
-        display={['none', 'none', 'block']}
-      />
     </>
   );
 }

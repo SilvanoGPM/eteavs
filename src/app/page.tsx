@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'ETE Ariano Vilar Suassuna',
   description: 'Site para a Escola Técnica Estadual Ariano Vilar Suassuna.',
 
-  themeColor: '#D69E2E',
+  themeColor: '#3182CE',
 
   manifest: '/manifest.json',
 
