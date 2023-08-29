@@ -43,11 +43,11 @@ export function ActiveLink({
 
   return (
     <Link
-      {...props}
       color={color}
       textTransform="uppercase"
       fontWeight="semibold"
       fontSize="xl"
+      {...props}
     >
       {children}
     </Link>

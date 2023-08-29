@@ -1,8 +1,29 @@
-import { Stack } from '@chakra-ui/react';
+import { Icon, Stack } from '@chakra-ui/react';
+import {
+  PiHouseLineFill,
+  PiInfoFill,
+  PiPhoneFill,
+  PiCameraFill,
+  PiPencilSimpleFill,
+} from 'react-icons/pi';
 
 import { ActiveLink } from '$components/active-link';
 
 import { ContentProps } from './content';
+
+const links = [
+  {
+    href: '/',
+    text: 'Página Inicial',
+    icon: PiHouseLineFill,
+    shouldMatchExactHref: true,
+  },
+
+  { href: '/sobre', text: 'Sobre Nós', icon: PiInfoFill },
+  { href: '/ensino', text: 'Ensino', icon: PiPencilSimpleFill },
+  { href: '/social', text: 'Social', icon: PiCameraFill },
+  { href: '/fale-conosco', text: 'Fale Conosco', icon: PiPhoneFill },
+];
 
 export function Navbar({ isLargeScreen }: ContentProps) {
   return (
@@ -13,14 +34,19 @@ export function Navbar({ isLargeScreen }: ContentProps) {
       as="nav"
       p="4"
     >
-      <ActiveLink href="/" shouldMatchExactHref>
-        Página Inicial
-      </ActiveLink>
-
-      <ActiveLink href="/sobre">Sobre Nós</ActiveLink>
-      <ActiveLink href="/ensino">Ensino</ActiveLink>
-      <ActiveLink href="/social">Social</ActiveLink>
-      <ActiveLink href="/fale-conosco">Fale Conosco</ActiveLink>
+      {links.map((link) => (
+        <ActiveLink
+          key={link.href}
+          href={link.href}
+          shouldMatchExactHref={link.shouldMatchExactHref}
+          display="flex"
+          alignItems="center"
+          fontSize={{ base: '2xl', md: '3xl', lg: 'xl' }}
+        >
+          <Icon as={link.icon} mr="1" />
+          {link.text}
+        </ActiveLink>
+      ))}
     </Stack>
   );
 }

@@ -1,9 +1,19 @@
 'use client';
 
-import { Box, Button, Flex, Heading, Text, Image } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Icon,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 
-import { BackgroundVideo } from '$components/background-video';
+import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
+
 import studentImg from '$assets/images/student.png';
+import { BackgroundVideo } from '$components/background-video';
 
 export function HomeTemplate() {
   return (
@@ -47,8 +57,13 @@ export function HomeTemplate() {
           </Text>
 
           <Flex gap="2">
-            <Button>Conhecer Mais</Button>
-            <Button variant="outline">Contato</Button>
+            <Button rightIcon={<Icon as={PiCaretRightBold} />}>
+              Saber Mais
+            </Button>
+
+            <Button variant="outline" rightIcon={<Icon as={PiPhoneFill} />}>
+              Contato
+            </Button>
           </Flex>
 
           <Image
