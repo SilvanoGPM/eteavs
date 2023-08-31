@@ -49,6 +49,7 @@ export function Header() {
         />
 
         <Flex
+          as="header"
           pos="fixed"
           left="0"
           direction="column"
@@ -81,6 +82,7 @@ export function Header() {
       <Box h="100px" w="full" />
 
       <Center
+        as="header"
         pos="fixed"
         zIndex="modal"
         top="0"
@@ -105,5 +107,3 @@ export function Header() {
     </>
   );
 }
-
-export default Header;

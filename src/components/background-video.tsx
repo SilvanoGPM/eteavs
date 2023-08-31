@@ -1,9 +1,9 @@
 import { AspectRatio } from '@chakra-ui/react';
+import ReactPlayer from 'react-player/lazy';
 
 export function BackgroundVideo() {
   return (
     <AspectRatio
-      ratio={1}
       filter="auto"
       brightness="0.25"
       pos="absolute"
@@ -12,11 +12,19 @@ export function BackgroundVideo() {
       left="0"
       w="full"
       h="100vh"
-      bg="blue.900"
+      bgGradient="linear(blue.900, blue.500)"
+      pt="56.25%"
     >
-      <video autoPlay loop muted preload="metadata">
-        <source src="/assets/bg.mp4#t=0.1" type="video/mp4" />
-      </video>
+      <ReactPlayer
+        url="/assets/bg.mp4#t=0.1"
+        playing
+        loop
+        controls={false}
+        pip={false}
+        volume={0}
+        width="100%"
+        height="100%"
+      />
     </AspectRatio>
   );
 }

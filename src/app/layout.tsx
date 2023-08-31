@@ -2,14 +2,11 @@
 
 import { ReactNode } from 'react';
 import NextTopLoader from 'nextjs-toploader';
+import { Box, Flex } from '@chakra-ui/react';
+
+import { Header } from '$components/header';
 
 import { Providers } from './providers';
-import { Box, Flex } from '@chakra-ui/react';
-import dynamic from 'next/dynamic';
-
-const Header = dynamic(() => import('$components/header'), {
-  ssr: false,
-});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -21,7 +18,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Flex maxW="1200px" mx="auto" direction="column" minH="100vh">
             <Header />
 
-            <Box flex="1">{children}</Box>
+            <Box as="main" flex="1">
+              {children}
+            </Box>
           </Flex>
         </Providers>
       </body>
