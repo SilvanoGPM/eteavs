@@ -1,0 +1,19 @@
+name: FTP Deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+      env: # Or as an environment variable
+        FTP_USER: ${{ secrets.FTP_USER }}
+        FTP_PASS: ${{ secrets.FTP_PASS }}
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_PORT: ${{ secrets.FTP_PORT }}
+    - run: npm install
+    - run: npm run deploy

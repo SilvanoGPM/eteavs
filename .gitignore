@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -35,3 +36,7 @@ yarn-error.log*
 public/sw.js
 public/workbox-*.js
 
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
