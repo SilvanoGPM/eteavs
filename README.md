@@ -1,4 +1,4 @@
-<h1 align="center">Next Boilerplate</h1>
+<h1 align="center">ETE AVS</h1>
 <p align="center"> Boilerplate for NextJS projects</p>
 
 <p align="center">
