@@ -37,6 +37,11 @@ export const theme = extendTheme({
     },
   },
 
+  fonts: {
+    heading: 'var(--font-lato)',
+    body: 'var(--font-lato)',
+  },
+
   styles: {
     global: {
       html: {
@@ -45,6 +50,7 @@ export const theme = extendTheme({
 
       body: {
         ...thinScrollbar,
+        overflowX: 'hidden',
       },
 
       '#detach-button-host': {

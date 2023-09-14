@@ -10,10 +10,11 @@ export function BackgroundVideo() {
       zIndex="-1"
       top="0"
       left="0"
-      w="full"
-      h="100vh"
-      minH="500px"
+      right="0"
+      bottom="0"
+      maxH="100vh"
       bgGradient="linear(blue.900, blue.500)"
+      overflow="hidden"
       sx={{ video: { objectFit: 'cover' } }}
     >
       <ReactPlayer
