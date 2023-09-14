@@ -30,7 +30,7 @@ export function Header() {
   if (!isLargeScreen) {
     return (
       <Fade in>
-        <Logo pos="absolute" top="8" left="8" h="40px" />
+        <Logo pos="absolute" top="8" left={['4', '4', '8']} h="40px" />
 
         <Box
           boxSize="2rem"
@@ -96,7 +96,7 @@ export function Header() {
           as={Fade}
           in
           w="full"
-          maxW="1200px"
+          maxW="7xl"
           px="8"
           justify="space-between"
           align="center"

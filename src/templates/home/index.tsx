@@ -1,15 +1,6 @@
 'use client';
 
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Icon,
-  Image,
-  Text,
-} from '@chakra-ui/react';
-
+import { Button, Flex, Heading, Icon, Image, Text } from '@chakra-ui/react';
 import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
 
 import studentImg from '$assets/images/student.png';
@@ -20,27 +11,8 @@ export function HomeTemplate() {
     <>
       <BackgroundVideo />
 
-      <Box
-        pos="absolute"
-        w="full"
-        zIndex="1"
-        bottom="0"
-        left="0"
-        py={['10', '20']}
-        color="white"
-        overflow="hidden"
-      >
-        <Flex
-          direction="column"
-          pos="relative"
-          w="full"
-          h="full"
-          maxW="1200px"
-          align="start"
-          mx="auto"
-          px="8"
-          gap={['2', '2', '4']}
-        >
+      <Flex flexGrow="1" w="full" pos="relative" align="end">
+        <Flex direction="column" gap={['2', '2', '4']} pb={['10', '20']}>
           <Heading textTransform="uppercase" color="blue.500">
             <Text as="span" fontSize={['md', 'xl']} color="white">
               Escola Técnica Estadual
@@ -65,19 +37,18 @@ export function HomeTemplate() {
               Contato
             </Button>
           </Flex>
-
-          <Image
-            src={studentImg.src}
-            alt="Student"
-            pos="absolute"
-            zIndex="2"
-            bottom={['-10', '-20']}
-            right="0"
-            maxW={['250px', '250px', '250px', '400px']}
-            display={['none', 'none', 'block']}
-          />
         </Flex>
-      </Box>
+
+        <Image
+          src={studentImg.src}
+          alt="Student"
+          pos="absolute"
+          zIndex="2"
+          right="0"
+          maxW={['250px', '250px', '250px', '400px']}
+          display={['none', 'none', 'block']}
+        />
+      </Flex>
     </>
   );
 }

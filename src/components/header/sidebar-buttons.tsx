@@ -9,9 +9,9 @@ export function SidebarButtons({ sidebarIsOpen }: SidebarButtonsProps) {
   return (
     <>
       {sidebarIsOpen ? (
-        <CloseSidebarButton pos="absolute" right="8" top="8" zIndex="sticky" />
+        <CloseSidebarButton pos="absolute" right="8" top="8" zIndex="999" />
       ) : (
-        <OpenSidebarButton pos="absolute" right="8" top="8" />
+        <OpenSidebarButton pos="absolute" right="8" top="8" zIndex="997" />
       )}
     </>
   );

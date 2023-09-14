@@ -12,8 +12,9 @@ export function BackgroundVideo() {
       left="0"
       w="full"
       h="100vh"
+      minH="500px"
       bgGradient="linear(blue.900, blue.500)"
-      sx={{ video: { objectFit: 'fill' } }}
+      sx={{ video: { objectFit: 'cover' } }}
     >
       <ReactPlayer
         url="/assets/bg.mp4#t=0.1"
