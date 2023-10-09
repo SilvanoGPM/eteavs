@@ -8,21 +8,22 @@ export const Button: ComponentStyleConfig = {
   },
 
   variants: {
-    solid: {
-      bg: 'blue.500',
+    customSolid: {
+      bg: `blue.500`,
       color: 'white',
 
       _hover: {
-        bg: 'blue.700',
+        bg: `blue.700`,
       },
 
       _active: {
-        bg: 'blue.800',
+        bg: `blue.800`,
       },
     },
 
-    outline: {
+    customOutline: {
       bg: 'blueAlpha.200',
+      borderWidth: '1px',
       borderColor: 'blue.500',
       color: 'blue.500',
       fontWeight: '600',

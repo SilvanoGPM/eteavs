@@ -15,10 +15,12 @@ import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
 import eteImg from '$assets/images/ete.jpeg';
 import studentImg from '$assets/images/student.png';
 import { BackgroundVideo } from '$components/background-video';
+import { EventModal } from '$components/event-modal';
 
 export function HomeTemplate() {
   return (
     <>
+      <EventModal />
       <BackgroundVideo />
 
       <Flex
@@ -46,11 +48,17 @@ export function HomeTemplate() {
           </Text>
 
           <Flex gap="2">
-            <Button rightIcon={<Icon as={PiCaretRightBold} />}>
+            <Button
+              variant="customSolid"
+              rightIcon={<Icon as={PiCaretRightBold} />}
+            >
               Saber Mais
             </Button>
 
-            <Button variant="outline" rightIcon={<Icon as={PiPhoneFill} />}>
+            <Button
+              variant="customOutline"
+              rightIcon={<Icon as={PiPhoneFill} />}
+            >
               Contato
             </Button>
           </Flex>

@@ -9,9 +9,12 @@ import { Header } from '$components/header';
 import { Footer } from '$components/footer';
 import { Providers } from './providers';
 
-import { Lato } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-const lato = Lato({ subsets: ['latin'], weight: ['100', '400', '700', '900'] });
+const lato = Inter({
+  subsets: ['latin'],
+  weight: ['100', '400', '700', '900'],
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

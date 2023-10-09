@@ -2,9 +2,10 @@
 
 import { ReactNode } from 'react';
 
-import { Box, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
+import { Box, Icon, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 
 import logoImg from '$assets/images/logo.png';
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -75,19 +76,24 @@ export function Footer() {
             <Box as="a" href={'#'}>
               EAD
             </Box>
+
+            <Box as="a" href={'#'}>
+              Subsequente
+            </Box>
           </Stack>
 
           <Stack align={'flex-start'}>
             <ListHeader>Redes Sociais</ListHeader>
             <Box as="a" href={'#'}>
-              Facebook
+              <Icon as={FaFacebook} mr="1" /> Facebook
             </Box>
 
             <Box as="a" href={'#'}>
-              Instagram
+              <Icon as={FaInstagram} mr="1" /> Instagram
             </Box>
 
             <Box as="a" href={'#'}>
+              <Icon as={FaLinkedin} mr="1" />
               LinkedIn
             </Box>
           </Stack>
