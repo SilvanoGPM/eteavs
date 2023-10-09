@@ -20,16 +20,20 @@ import bottomImg from '$assets/images/bottom.png';
 import suassunaTecImg from '$assets/images/suassunatec.png';
 import topImg from '$assets/images/top.png';
 
+import { Calendar } from './calendar';
 import { UnitBox } from './unit-box';
 
 export function EventModal() {
-  const disclosure = useDisclosure({ defaultIsOpen: true });
+  const eventDisclosure = useDisclosure({ defaultIsOpen: true });
+  const calendarDisclosure = useDisclosure();
 
   return (
-    <Modal {...disclosure} size="full" motionPreset="slideInRight">
+    <Modal {...eventDisclosure} size="full" motionPreset="slideInRight">
       <ModalOverlay />
       <ModalContent>
         <ModalBody>
+          <Calendar {...calendarDisclosure} />
+
           <Image src={topImg.src} pos="absolute" top="0" left="0" />
           <Image src={bottomImg.src} pos="absolute" bottom="0" right="0" />
 
@@ -39,10 +43,10 @@ export function EventModal() {
             pos="absolute"
             color="red"
             variant="unstyled"
-            fontSize="3xl"
+            size="lg"
             top="4"
             right="4"
-            onClick={disclosure.onClose}
+            onClick={eventDisclosure.onClose}
           />
 
           <Center
@@ -101,6 +105,7 @@ export function EventModal() {
                 px="8"
                 maxW="300px"
                 w="full"
+                onClick={calendarDisclosure.onOpen}
               >
                 Programação
               </Button>
