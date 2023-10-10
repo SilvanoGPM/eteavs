@@ -21,6 +21,7 @@ export function BackgroundVideo() {
         url="/assets/bg.mp4#t=0.1"
         playing
         loop
+        muted
         controls={false}
         pip={false}
         volume={0}

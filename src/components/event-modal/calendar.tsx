@@ -7,10 +7,8 @@ import {
   Link,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
-  ModalHeader,
   ModalOverlay,
   UseDisclosureReturn,
 } from '@chakra-ui/react';
@@ -35,11 +33,10 @@ export function Calendar(props: UseDisclosureReturn) {
   return (
     <Modal {...props} size={{ base: 'md', md: '3xl' }} allowPinchZoom>
       <ModalOverlay />
-      <ModalContent mx="4">
-        <ModalHeader>Programação do Evento</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
+      <ModalContent bg="#F5F7F4">
+        <ModalBody p="0" pos="relative">
           <Flex
+            pb="8"
             flexDir="column"
             align="center"
             sx={{
@@ -50,12 +47,13 @@ export function Calendar(props: UseDisclosureReturn) {
               },
             }}
           >
-            <Slider settings={settings} w="full">
+            <Slider w="full" settings={settings}>
               {images.map((image) => {
                 return (
                   <Slide key={image} className="slide" itemID={image}>
-                    <Center w="full" maxW="540px">
+                    <Center w="full" pb="8">
                       <Image
+                        roundedTop="md"
                         alt="Imagem sobre a programação do evento"
                         src={image}
                         w="full"
@@ -69,8 +67,9 @@ export function Calendar(props: UseDisclosureReturn) {
           </Flex>
         </ModalBody>
 
-        <ModalFooter flexDir="column" gap="2" w="ful" mx="auto">
+        <ModalFooter flexDir="column" gap="2" w="full" mx="auto">
           <Button
+            rounded="full"
             as={Link}
             isExternal
             href="https://www.instagram.com/suassuna.tec/"
@@ -82,6 +81,7 @@ export function Calendar(props: UseDisclosureReturn) {
           </Button>
 
           <Button
+            rounded="full"
             leftIcon={<FaTimes />}
             w="full"
             colorScheme="red"

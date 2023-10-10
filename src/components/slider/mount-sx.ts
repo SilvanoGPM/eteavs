@@ -21,13 +21,14 @@ export function mountSx({
   buttonNext,
   buttonBefore,
 }: MountSxParams = {}) {
-  const swiperPagination = pagination ?? {
+  const swiperPagination = {
     padding: '0 12px',
     maxW: '70%',
     position: 'absolute',
     left: '50% !important',
     bottom: '10px !important',
     transform: 'translateX(-50%)',
+    ...pagination,
   };
 
   const swiperPaginationBullet = {
@@ -51,15 +52,14 @@ export function mountSx({
     borderColor: 'green',
     borderWidth: '1px',
     borderRadius: '50%',
-    height: '50px',
-    width: '50px',
+    boxSize: '25px',
     position: 'absolute',
     zIndex: '10',
     top: '50%',
     ...button,
 
     '&::after': {
-      fontSize: 'md',
+      fontSize: 'x-small',
       buttonContent,
     },
   };

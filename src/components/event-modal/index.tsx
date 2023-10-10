@@ -2,6 +2,7 @@ import {
   Button,
   Center,
   Flex,
+  Icon,
   IconButton,
   Image,
   Link,
@@ -39,11 +40,12 @@ export function EventModal() {
 
           <IconButton
             aria-label="Fechar modal"
-            icon={<FaTimes />}
+            icon={<Icon as={FaTimes} />}
             pos="absolute"
             color="red"
             variant="unstyled"
-            size="lg"
+            size="sm"
+            fontSize="2xl"
             top="4"
             right="4"
             onClick={eventDisclosure.onClose}
@@ -56,7 +58,7 @@ export function EventModal() {
             py={{ base: '24', md: '0' }}
           >
             <Text
-              color="green"
+              color="green.500"
               textAlign="center"
               fontWeight="900"
               fontSize="2xl"
