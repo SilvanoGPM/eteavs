@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Flex, VStack } from '@chakra-ui/react';
+import { Flex, VStack } from '@chakra-ui/react';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
 
@@ -31,12 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <NextTopLoader color="#D69E2E" />
 
         <Providers>
-          <Flex
-            as={Container}
-            direction="column"
-            maxW="7xl"
-            px={['4', '4', '8']}
-          >
+          <Flex direction="column">
             <Header />
 
             <VStack as="main" align="start" gap="8" flex="1" w="full" h="full">

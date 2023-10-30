@@ -5,6 +5,8 @@ import {
   Button,
   Center,
   Flex,
+  Grid,
+  GridItem,
   Heading,
   Icon,
   Image,
@@ -15,15 +17,16 @@ import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
 import eteImg from '$assets/images/ete.jpeg';
 import studentImg from '$assets/images/student.png';
 import { BackgroundVideo } from '$components/background-video';
-import { EventModal } from '$components/event-modal';
+import { DefaultContainer } from '$components/default-container';
+import { NewsLink } from '$components/news-link';
 
 export function HomeTemplate() {
   return (
     <>
-      <EventModal />
       <BackgroundVideo />
 
       <Flex
+        as={DefaultContainer}
         flexGrow="1"
         w="full"
         h="full"
@@ -76,8 +79,9 @@ export function HomeTemplate() {
       </Flex>
 
       <Flex
+        as={DefaultContainer}
         w="full"
-        minH="400px"
+        minH={{ base: '400px', md: '500px' }}
         gap="8"
         direction={['column', 'column', 'row']}
       >
@@ -87,7 +91,7 @@ export function HomeTemplate() {
               Sobre Nós
             </Heading>
 
-            <Box w="50%" h="4px" bg="yellow.500" rounded="full" />
+            <Box w="50px" h="4px" bg="yellow.500" rounded="full" />
           </Center>
 
           <Text color="gray.900" textAlign="justify">
@@ -113,6 +117,102 @@ export function HomeTemplate() {
             />
           </Box>
         </Center>
+      </Flex>
+
+      <Flex w="full" direction="column">
+        <Center flexDir="column">
+          <Heading textAlign="left" textTransform="uppercase" fontSize="3xl">
+            Blog
+          </Heading>
+
+          <Box w="50px" h="4px" bg="yellow.500" rounded="full" />
+        </Center>
+
+        <Grid
+          templateColumns="repeat(12, 1fr)"
+          templateRows="repeat(2, 1fr)"
+          gap="4"
+          minH="600px"
+          p={{ base: '4', lg: '8' }}
+        >
+          <GridItem
+            gridArea={{ base: 'span 1 / span 12', md: '1 / 1 / 3 / 7' }}
+          >
+            <NewsLink
+              news={{
+                title:
+                  'Raquel Lira Visita Escola Técnica Estadual Com Seu Novo Programa: Voz do Povo',
+                image:
+                  'https://cdn.folhape.com.br/upload/dn_arquivo/2023/06/raquel_2.jpg',
+                date: '24 de Outubro, 2023',
+                link: '/',
+              }}
+            />
+          </GridItem>
+
+          <GridItem
+            gridArea={{ base: 'span 1 / span 12', md: '1 / 7 / 2 / 10' }}
+          >
+            <NewsLink
+              isSmall
+              news={{
+                title:
+                  '1° Suassuna + Tec: O Evento Tecnologico da Escola Técnica Estadual',
+                image:
+                  'https://lh3.googleusercontent.com/p/AF1QipP9DaBrQxeGe9MO79q2cY_r_NGccdAG34AVTHfP=s680-w680-h510',
+                date: '24 de Outubro, 2023',
+                link: '/',
+              }}
+            />
+          </GridItem>
+
+          <GridItem
+            gridArea={{ base: 'span 1 / span 12', md: '1 / 10 / 2 / 13' }}
+          >
+            <NewsLink
+              isSmall
+              news={{
+                title:
+                  'Governo do estado disponibiliza mais 90 vagas para a Escola Técnica Estadual',
+                image:
+                  'https://lh3.googleusercontent.com/p/AF1QipPsxC86sPlIMrCwOM9CSePDgz4IDWP2_aq0YMUb=s680-w680-h510',
+                date: '24 de Outubro, 2023',
+                link: '/',
+              }}
+            />
+          </GridItem>
+
+          <GridItem
+            gridArea={{ base: 'span 1 / span 12', md: '2 / 7 / 3 / 10' }}
+          >
+            <NewsLink
+              isSmall
+              news={{
+                title: 'FACEPE aprova 90 vagas para a Escola Técnica Estadual',
+                image:
+                  'https://www.facepe.br/wp-content/uploads/2014/04/622425-445053752209927-1961865487-o.jpg',
+                date: '24 de Outubro, 2023',
+                link: '/',
+              }}
+            />
+          </GridItem>
+
+          <GridItem
+            gridArea={{ base: 'span 1 / span 12', md: '2 / 10 / 3 / 13' }}
+          >
+            <NewsLink
+              isSmall
+              news={{
+                title:
+                  'Equipe de vôlei da Escola Técnica Estadual conquista prata na copa CMA',
+                image:
+                  'https://cbv.com.br/img/noticias/2019/maringa-pr-e-vila-velha-es-tambem-receberao-seletiva-para-jovens-do-volei-de-praia.jpg',
+                date: '24 de Outubro, 2023',
+                link: '/',
+              }}
+            />
+          </GridItem>
+        </Grid>
       </Flex>
     </>
   );
