@@ -45,10 +45,9 @@ export function HomeTemplate() {
           </Heading>
 
           <Text maxW="500px" color="gray.300" fontSize="sm" textAlign="justify">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere
-            voluptatibus, fugit nulla doloribus saepe deserunt eveniet corrupti
-            consequatur expedita maxime, mollitia optio veritatis ducimus vero
-            repudiandae ullam quasi distinctio. Fuga.
+            Quem gosta de ler não morre só. <br />
+            Faça o técnico em lógistica ou desenvolvimento de sistemas na forma
+            médio integrado.
           </Text>
 
           <Flex gap="2">
@@ -109,14 +108,16 @@ export function HomeTemplate() {
           </Center>
 
           <Text color="gray.900" textAlign="justify">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
-            facilis iste debitis rerum eius officia magnam corporis nobis.
-            Numquam, deleniti quia expedita accusantium facere doloribus error
-            quas iure laborum excepturi? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Incidunt in nostrum non consectetur accusamus
-            ipsum temporibus cupiditate aut ipsam rerum possimus quasi
-            blanditiis eveniet tempora dolores expedita perferendis, officiis
-            impedit!
+            A 43ª Escola Técnica Estadual (ETE) inaugurada em 5 de julho de
+            2018, e a primeira de Garanhuns. Ela é composta por seis blocos
+            interligados por passarelas cobertas: auditório, bloco de acesso e
+            biblioteca, bloco de serviços e vivência, quadra poliesportiva
+            coberta – com vestiários e sala multiuso – laboratórios especiais e
+            um bloco pedagógico/administrativo. Este último dividido em 12 salas
+            de aula e laboratórios de Biologia, Química, Física, Matemática,
+            Línguas e Informática. Que aliada com a excelência pedagógica,
+            auxilia os alunos na construção do seu conhecimento de forma
+            integral.
           </Text>
         </Center>
 
@@ -206,7 +207,7 @@ export function HomeTemplate() {
               news={{
                 title: 'FACEPE aprova 90 vagas para a Escola Técnica Estadual',
                 image:
-                  'https://www.facepe.br/wp-content/uploads/2014/04/622425-445053752209927-1961865487-o.jpg',
+                  'https://confap.org.br/news/wp-content/uploads/2014/07/facepe-e1421169897379.png',
                 date: '24 de Outubro, 2023',
                 link: '/',
               }}
