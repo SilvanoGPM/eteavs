@@ -24,6 +24,7 @@ export function NewsLink({ news, isSmall = false, ...props }: NewsLinkProps) {
       role="group"
       rounded="2xl"
       overflow="hidden"
+      minH={{ base: '200px' }}
       {...props}
     >
       <Image
@@ -54,13 +55,14 @@ export function NewsLink({ news, isSmall = false, ...props }: NewsLinkProps) {
           as="time"
           color="gray.400"
           mb="2"
+          fontSize={{ base: 'x-small', lg: 'md' }}
           display="flex"
           alignItems="center"
         >
           <Icon as={PiCalendarBlank} mr="1" /> {news.date}
         </Text>
         <Heading
-          fontSize={{ base: isSmall ? 'md' : 'xl', md: isSmall ? 'xl' : '2xl' }}
+          fontSize={{ base: isSmall ? 'md' : 'xl', md: isSmall ? 'md' : '2xl' }}
         >
           {news.title}
         </Heading>

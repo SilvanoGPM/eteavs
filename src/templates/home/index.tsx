@@ -15,7 +15,8 @@ import {
 import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
 
 import eteImg from '$assets/images/ete.jpeg';
-import studentImg from '$assets/images/student.png';
+import student1Img from '$assets/images/student1.png';
+import student2Img from '$assets/images/student2.png';
 import { BackgroundVideo } from '$components/background-video';
 import { DefaultContainer } from '$components/default-container';
 import { NewsLink } from '$components/news-link';
@@ -35,7 +36,7 @@ export function HomeTemplate() {
         align="end"
       >
         <Flex direction="column" gap={['2', '2', '4']} pb={['10', '20']}>
-          <Heading textTransform="uppercase" color="blue.500">
+          <Heading color="blue.500" fontWeight="black">
             <Text as="span" fontSize={['md', 'xl']} color="white">
               Escola Técnica Estadual
             </Text>{' '}
@@ -68,11 +69,24 @@ export function HomeTemplate() {
         </Flex>
 
         <Image
-          src={studentImg.src}
+          src={student1Img.src}
+          alt="Student"
+          pos="absolute"
+          zIndex="3"
+          right="0"
+          bottom={{ base: '-17px', lg: '-27px' }}
+          transform="auto"
+          scale="0.9"
+          maxW={['250px', '250px', '250px', '400px']}
+          display={['none', 'none', 'block']}
+        />
+
+        <Image
+          src={student2Img.src}
           alt="Student"
           pos="absolute"
           zIndex="2"
-          right="0"
+          right="20"
           maxW={['250px', '250px', '250px', '400px']}
           display={['none', 'none', 'block']}
         />
@@ -87,7 +101,7 @@ export function HomeTemplate() {
       >
         <Center flexDir="column" flex="1" gap="4">
           <Center flexDir="column">
-            <Heading textAlign="left" textTransform="uppercase" fontSize="3xl">
+            <Heading textAlign="left" fontSize="3xl">
               Sobre Nós
             </Heading>
 
@@ -119,9 +133,11 @@ export function HomeTemplate() {
         </Center>
       </Flex>
 
-      <Flex w="full" direction="column">
+      <Flex w="full" direction="column" bg="blue.900" minH="100vh"></Flex>
+
+      <Flex w="full" direction="column" py="12">
         <Center flexDir="column">
-          <Heading textAlign="left" textTransform="uppercase" fontSize="3xl">
+          <Heading textAlign="left" fontSize="3xl">
             Blog
           </Heading>
 
@@ -130,8 +146,8 @@ export function HomeTemplate() {
 
         <Grid
           templateColumns="repeat(12, 1fr)"
-          templateRows="repeat(2, 1fr)"
-          gap="4"
+          templateRows={{ base: 'repeat(5, 1fr)', md: 'repeat(2, 1fr)' }}
+          gap={{ base: '2', lg: '4' }}
           minH="600px"
           p={{ base: '4', lg: '8' }}
         >
@@ -214,6 +230,8 @@ export function HomeTemplate() {
           </GridItem>
         </Grid>
       </Flex>
+
+      <Flex w="full" direction="column" bg="blue.900" minH="100vh"></Flex>
     </>
   );
 }

@@ -3,15 +3,16 @@
 import { Flex, VStack } from '@chakra-ui/react';
 import NextTopLoader from 'nextjs-toploader';
 import { ReactNode } from 'react';
+import VLibras from 'vlibras-nextjs';
 
 import { Header } from '$components/header';
 
 import { Footer } from '$components/footer';
 import { Providers } from './providers';
 
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-const lato = Inter({
+const lato = Poppins({
   subsets: ['latin'],
   weight: ['100', '400', '700', '900'],
 });
@@ -41,6 +42,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
           <Footer />
         </Providers>
+
+        {process.env.NODE_ENV === 'production' && <VLibras forceOnload />}
       </body>
     </html>
   );

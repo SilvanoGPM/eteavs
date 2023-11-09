@@ -18,7 +18,7 @@ export function BackgroundVideo() {
       sx={{ video: { objectFit: 'cover' } }}
     >
       <ReactPlayer
-        url="/assets/bg.mp4#t=0.1"
+        url="/assets/bg2.mp4#t=0.1"
         playing
         loop
         muted

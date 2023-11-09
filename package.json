@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "theme": "chakra-cli tokens ./src/styles/theme.ts",
-    "deploy": "next build && next export && node ./scripts/deploy.js"
+    "deploy": "next build && next export && node ./scripts/deploy.js",
+    "serve": "npx serve@latest out"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.1.5",
@@ -27,6 +28,7 @@
     "react-icons": "^4.10.1",
     "react-player": "^2.12.0",
     "swiper": "^8.1.4",
+    "vlibras-nextjs": "^1.1.2",
     "zustand": "^4.4.1"
   },
   "devDependencies": {

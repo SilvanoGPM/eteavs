@@ -42,13 +42,7 @@ export function ActiveLink({
   const color = isActive ? 'blue.500' : 'white';
 
   return (
-    <Link
-      color={color}
-      textTransform="uppercase"
-      fontWeight="semibold"
-      fontSize="xl"
-      {...props}
-    >
+    <Link color={color} fontWeight="semibold" fontSize="xl" {...props}>
       {children}
     </Link>
   );
