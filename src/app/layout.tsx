@@ -10,9 +10,9 @@ import { Header } from '$components/header';
 import { Footer } from '$components/footer';
 import { Providers } from './providers';
 
-import { Poppins } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const lato = Poppins({
+const lato = Montserrat({
   subsets: ['latin'],
   weight: ['100', '400', '700', '900'],
 });
