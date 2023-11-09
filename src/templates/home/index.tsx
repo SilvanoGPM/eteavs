@@ -44,7 +44,7 @@ export function HomeTemplate() {
             Ariano Vilar Suassuna
           </Heading>
 
-          <Text maxW="500px" color="gray.300" fontSize="sm" textAlign="justify">
+          <Text maxW="500px" color="gray.300" fontSize="sm">
             Quem gosta de ler não morre só. <br />
             Faça o técnico em lógistica ou desenvolvimento de sistemas na forma
             médio integrado.

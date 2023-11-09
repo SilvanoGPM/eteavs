@@ -13,8 +13,8 @@ export function BackgroundVideo() {
       right="0"
       bottom="0"
       maxH="100vh"
-      bgGradient="linear(blue.900, blue.500)"
       bgImage="/assets/bgCover.png"
+      bgColor="blue.900"
       overflow="hidden"
       sx={{ video: { objectFit: 'cover' } }}
     >
