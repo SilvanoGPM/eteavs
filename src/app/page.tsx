@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { HomeTemplate } from '$templates/home';
 
 export const metadata: Metadata = {
-  title: 'ETE Ariano Vilar Suassuna',
+  title: 'Escola Técnica Estadual Ariano Vilar Suassuna',
   description: 'Site para a Escola Técnica Estadual Ariano Vilar Suassuna.',
 
   themeColor: '#3182CE',

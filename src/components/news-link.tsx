@@ -1,3 +1,4 @@
+import { useShimmerAnimation } from '$hooks/use-shimmer-animation';
 import { Flex, FlexProps, Heading, Icon, Image, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { PiCalendarBlank } from 'react-icons/pi';
@@ -13,6 +14,8 @@ interface NewsLinkProps extends FlexProps {
 }
 
 export function NewsLink({ news, isSmall = false, ...props }: NewsLinkProps) {
+  const shimmerAnimation = useShimmerAnimation();
+
   return (
     <Flex
       pos="relative"
@@ -39,6 +42,7 @@ export function NewsLink({ news, isSmall = false, ...props }: NewsLinkProps) {
         transition="0.2s ease-in-out"
         transform="auto"
         _groupHover={{ brightness: '0.35', scale: '1.1' }}
+        {...shimmerAnimation}
       />
 
       <Flex

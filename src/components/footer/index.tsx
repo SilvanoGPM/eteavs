@@ -2,7 +2,15 @@
 
 import { ReactNode } from 'react';
 
-import { Box, Icon, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Icon,
+  Image,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 
 import logoImg from '$assets/images/logo.png';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
@@ -79,11 +87,16 @@ export function Footer() {
 
           <Stack align={'flex-start'}>
             <ListHeader>Redes Sociais</ListHeader>
-            <Box as="a" href={'#'}>
+
+            <Box as={Link} isExternal href="https://www.facebook.com/eteavs/">
               <Icon as={FaFacebook} mr="1" /> Facebook
             </Box>
 
-            <Box as="a" href={'#'}>
+            <Box
+              as={Link}
+              isExternal
+              href="https://www.instagram.com/etearianosuassuna/"
+            >
               <Icon as={FaInstagram} mr="1" /> Instagram
             </Box>
 
