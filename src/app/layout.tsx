@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Flex direction="column">
             <Header />
 
-            <VStack as="main" align="start" gap="8" flex="1" w="full" h="full">
+            <VStack as="main" align="start" gap="0" flex="1" w="full" h="full">
               {children}
             </VStack>
           </Flex>

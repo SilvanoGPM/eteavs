@@ -25,7 +25,6 @@ export function NewsLink({ news, isSmall = false, ...props }: NewsLinkProps) {
       href={news.link}
       title={news.title}
       role="group"
-      rounded="2xl"
       overflow="hidden"
       minH={{ base: '200px' }}
       {...props}

@@ -1,20 +1,20 @@
 import { Box, Center, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
-import eteImg from '$assets/images/ete.jpeg';
-import { DefaultContainer } from '$components/default-container';
+import eteImg from '$assets/images/ete.jpg';
 
 export function AboutUs() {
   return (
     <Flex
-      as={DefaultContainer}
       data-scroll="about-us"
       scrollMarginTop={{ base: '20px', md: '120px' }}
+      flexGrow="1"
       w="full"
-      minH={{ base: '400px', md: '500px' }}
+      h="full"
       gap="8"
+      minH={{ base: '400px', md: '500px' }}
       direction={['column', 'column', 'row']}
     >
-      <Center flexDir="column" flex="1" gap="4">
+      <Center flexDir="column" flex="1" gap="4" p={{ base: '4', md: '8' }}>
         <Center flexDir="column">
           <Heading textAlign="left" fontSize="3xl">
             Sobre Nós
@@ -37,9 +37,11 @@ export function AboutUs() {
       </Center>
 
       <Center flex="1">
-        <Box w="full" rounded="2xl" overflow="hidden">
+        <Box w="full" h="full" overflow="hidden">
           <Image
-            rounded="lg"
+            w="full"
+            h="full"
+            objectFit="cover"
             filter="auto"
             brightness="0.5"
             alt="Escola Técnica Estadual de Garanhuns"

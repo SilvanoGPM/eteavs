@@ -2,7 +2,7 @@ import { ComponentStyleConfig } from '@chakra-ui/react';
 
 export const Button: ComponentStyleConfig = {
   baseStyle: {
-    rounded: 'md',
+    rounded: 'full',
     textTransform: 'uppercase',
     transition: '0.2s ease-in-out',
   },
