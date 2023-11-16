@@ -1,62 +1,95 @@
 import {
+  Box,
   Button,
   Flex,
   Heading,
   Icon,
   Image,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
   Spacer,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
+import { ReactNode } from 'react';
+
 import { PiArrowRightBold } from 'react-icons/pi';
 
 interface TeachingCardProps {
   image: string;
   title: string;
   description: string;
-  onClick: () => void;
+  body: ReactNode;
 }
 
 export function TeachingCard({
   image,
   title,
   description,
-  onClick,
+  body,
 }: TeachingCardProps) {
-  return (
-    <Flex
-      rounded="2xl"
-      overflow="hidden"
-      direction="column"
-      minH="480px"
-      w="full"
-      maxW="340px"
-      bg="white"
-      color="blue.600"
-      shadow="2xl"
-    >
-      <Image w="full" h="40%" src={image} />
+  const modalDisclosure = useDisclosure();
 
-      <Flex direction="column" p="4">
-        <Heading as="h4" fontSize={{ base: 'xl', md: '2xl' }}>
-          {title}
-        </Heading>
-        <Text fontSize="sm" mt={{ base: '2', md: '4' }} color="gray.700">
-          {description}
-        </Text>
+  return (
+    <>
+      <Flex
+        flex="1"
+        rounded="2xl"
+        overflow="hidden"
+        direction="column"
+        h="550px"
+        w="full"
+        minW="340px"
+        maxW="340px"
+        bg="white"
+        color="blue.600"
+        shadow="xl"
+      >
+        <Box w="full" h="40%" overflow="hidden">
+          <Image w="full" h="full" src={image} objectFit="cover" />
+        </Box>
+
+        <Flex direction="column" p="4">
+          <Heading as="h4" fontSize={{ base: 'xl', md: '2xl' }}>
+            {title}
+          </Heading>
+          <Text fontSize="sm" mt={{ base: '2', md: '4' }} color="gray.700">
+            {description}
+          </Text>
+        </Flex>
+
+        <Spacer />
+
+        <Button
+          variant="customSolid"
+          mx="4"
+          mb={{ base: '4', md: '8' }}
+          minH="40px"
+          rightIcon={<Icon as={PiArrowRightBold} />}
+          onClick={modalDisclosure.onOpen}
+        >
+          Saiba Mais
+        </Button>
       </Flex>
 
-      <Spacer />
+      <Modal {...modalDisclosure} size="3xl" motionPreset="slideInBottom">
+        <ModalOverlay />
 
-      <Button
-        variant="customSolid"
-        mx="4"
-        mb={{ base: '4', md: '8' }}
-        minH="40px"
-        rightIcon={<Icon as={PiArrowRightBold} />}
-        onClick={onClick}
-      >
-        Saiba Mais
-      </Button>
-    </Flex>
+        <ModalContent mx="4">
+          <ModalHeader>
+            <ModalCloseButton />
+            <Heading as="h2" fontSize="2xl">
+              {title}
+            </Heading>
+          </ModalHeader>
+
+          <ModalBody>{body}</ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 }
