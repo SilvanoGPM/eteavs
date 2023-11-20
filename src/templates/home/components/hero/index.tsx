@@ -14,6 +14,8 @@ export function Hero() {
       <BackgroundVideo />
 
       <Flex
+        id="home"
+        scrollMarginTop={{ base: '20px', md: '120px' }}
         as={DefaultContainer}
         flexGrow="1"
         w="full"
@@ -40,7 +42,7 @@ export function Hero() {
           <Flex gap="2">
             <ScrollButton
               size={{ base: 'sm', sm: 'md' }}
-              dataScroll="about-us"
+              dataScroll="sobre"
               variant="customSolid"
               rightIcon={<Icon as={PiCaretRightBold} />}
             >

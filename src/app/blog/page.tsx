@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { BlogFoundTemplate } from '$templates/blog-found';
+import { BlogTemplate } from '$templates/blog';
 
 export const metadata: Metadata = {
   title: 'Blog da Escola Técnica Estadual Ariano Vilar Suassuna',
@@ -8,6 +8,6 @@ export const metadata: Metadata = {
     'Blog com as notícias atualizadas da Escola Técnica Estadual Ariano Vilar Suassuna.',
 };
 
-export default function BlogFound() {
-  return <BlogFoundTemplate />;
+export default function Blog() {
+  return <BlogTemplate />;
 }

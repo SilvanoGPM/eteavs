@@ -11,6 +11,8 @@ import subsequenteImg from '$assets/images/subsequente.jpeg';
 export function Teaching() {
   return (
     <Flex
+      id="ensino"
+      scrollMarginTop={{ base: '20px', md: '120px' }}
       w="full"
       flexDir="column"
       bg="blue.900"
@@ -48,8 +50,8 @@ export function Teaching() {
       >
         <TeachingCard
           image={emImg.src}
-          title="Ensino Médio Integrado"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eaque, excepturi vero quam, voluptatibus illum nesciunt sequi rerum ratione voluptatem nisi temporibus iusto est veritatis doloremque, magnam tenetur mollitia. Delectus."
+          title="Ensino médio integrado"
+          description="As opções de ensino técnico de nível médio permitem que todos os estudantes da rede estadual pelo Estado tenham a oportunidade de se qualificarem sem sair das suas regiões de desenvolvimento, garantindo formação específica e direcionada ao mercado de trabalho."
           body={
             <Flex direction="column" gap="4">
               <Text>
@@ -77,7 +79,7 @@ export function Teaching() {
         <TeachingCard
           image={subsequenteImg.src}
           title="Subsequente"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eaque, excepturi vero quam, voluptatibus illum nesciunt sequi rerum ratione voluptatem nisi temporibus iusto est veritatis doloremque, magnam tenetur mollitia. Delectus."
+          description="Subsequente ao Ensino Médio: oferecida somente a quem já tenha concluído o ensino médio"
           body={
             <Flex direction="column" gap="4">
               <Text>

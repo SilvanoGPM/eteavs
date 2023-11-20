@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 
 import {
   Box,
+  Center,
   Icon,
   Image,
   Link,
@@ -11,9 +12,12 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
+import { Link as NextLink } from '@chakra-ui/next-js';
 
 import logoImg from '$assets/images/logo.png';
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { AiOutlineMail } from 'react-icons/ai';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { PiPhone } from 'react-icons/pi';
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -31,79 +35,68 @@ export function Footer() {
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr' }}
           spacing={8}
         >
-          <Stack spacing={6}>
-            <Box>
+          <Stack spacing={4}>
+            <Link href="/">
               <Image
                 alt="Letras E T E, acrônimo para escola técnica estadual com fundo azul."
                 w="120px"
                 src={logoImg.src}
               />
-            </Box>
+            </Link>
 
             <Text fontSize={'sm'}>
               © {new Date().getFullYear()} ETE AVS. Todos os direitos reservdos
+            </Text>
+
+            <Text fontSize={'sm'} display="flex" alignItems="center">
+              <Icon mr="1" as={PiPhone} /> +55 087 37618288
+            </Text>
+
+            <Text fontSize={'sm'} display="flex" alignItems="center">
+              <Icon mr="1" as={AiOutlineMail} /> eteavs.sub@gmail.com
             </Text>
           </Stack>
 
           <Stack align={'flex-start'}>
             <ListHeader>Sobre</ListHeader>
 
-            <Box as="a" href={'#'}>
-              Escola
-            </Box>
+            <NextLink href={'/#sobre'}>Escola</NextLink>
 
-            <Box as="a" href={'#'}>
+            <NextLink href={'/#ensino'}>Ensino</NextLink>
+
+            <Link isExternal href="https://maps.app.goo.gl/hivg8RUcAw9GpnMn6">
               Localização
-            </Box>
-
-            <Box as="a" href={'#'}>
-              Ensino
-            </Box>
-
-            <Box as="a" href={'#'}>
-              Estrutura
-            </Box>
+            </Link>
           </Stack>
 
           <Stack align={'flex-start'}>
             <ListHeader>Cursos</ListHeader>
 
-            <Box as="a" href={'#'}>
-              Des. de Sistemas
-            </Box>
+            <NextLink href={'/#ensino'}>Ensino médio integrado</NextLink>
 
-            <Box as="a" href={'#'}>
-              Logística
-            </Box>
+            <NextLink href={'/#ensino'}>Subsequente</NextLink>
 
-            <Box as="a" href={'#'}>
-              EAD
-            </Box>
-
-            <Box as="a" href={'#'}>
-              Subsequente
-            </Box>
+            <NextLink href={'/#ensino'}>Ensino a distância</NextLink>
           </Stack>
 
           <Stack align={'flex-start'}>
             <ListHeader>Redes Sociais</ListHeader>
 
-            <Box as={Link} isExternal href="https://www.facebook.com/eteavs/">
+            <Center
+              as={Link}
+              isExternal
+              href="https://www.facebook.com/eteavs/"
+            >
               <Icon as={FaFacebook} mr="1" /> Facebook
-            </Box>
+            </Center>
 
-            <Box
+            <Center
               as={Link}
               isExternal
               href="https://www.instagram.com/etearianosuassuna/"
             >
               <Icon as={FaInstagram} mr="1" /> Instagram
-            </Box>
-
-            <Box as="a" href={'#'}>
-              <Icon as={FaLinkedin} mr="1" />
-              LinkedIn
-            </Box>
+            </Center>
           </Stack>
         </SimpleGrid>
       </Stack>

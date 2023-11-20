@@ -12,12 +12,12 @@ import Wave from 'react-wavify';
 
 import { PiCameraPlus } from 'react-icons/pi';
 
-import eteImg from '$assets/images/ete.jpg';
-
 export function Gallery() {
   return (
     <>
       <Flex
+        id="galeria"
+        scrollMarginTop={{ base: '20px', md: '120px' }}
         w="full"
         direction="column"
         bg="blue.900"
@@ -56,7 +56,7 @@ export function Gallery() {
           minChildWidth={{ base: '220px', sm: '320px' }}
           justifyItems="center"
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 8].map((id) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((id) => (
             <Box
               key={id}
               pos="relative"
@@ -89,7 +89,7 @@ export function Gallery() {
                 right="0"
                 w="full"
                 h="full"
-                src={eteImg.src}
+                src={`https://picsum.photos/seed/${id}/200/300`}
                 objectFit="cover"
                 filter="auto"
                 transition="0.2s ease-in-out"

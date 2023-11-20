@@ -1,21 +1,29 @@
 'use client';
 
-import { Box, Center, Fade, Flex, useEventListener } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Fade,
+  Flex,
+  SystemStyleObject,
+  useEventListener,
+} from '@chakra-ui/react';
 
-import { useUIStore } from '$stores/ui';
 import { useScreenVersion } from '$hooks/use-screen-version';
+import { useUIStore } from '$stores/ui';
 import { throttle } from '$utils/throttle';
 
-import { Content } from './content';
-import { SidebarButtons } from './sidebar-buttons';
 import { glassmorphismContainer } from '$styles/tokens';
+import { Content } from './content';
 import { Logo } from './logo';
+import { SidebarButtons } from './sidebar-buttons';
 
 const ON_SCROLL_THROTTLE_MILLIS = 200;
 const MIN_HEIGHT_TO_TOP = 50;
 
 export function Header() {
-  const { sidebarIsOpen, headerInTop, setHeaderInTop } = useUIStore();
+  const { sidebarIsOpen, headerInTop, headerFilled, setHeaderInTop } =
+    useUIStore();
 
   const isLargeScreen = useScreenVersion('lg');
 
@@ -73,9 +81,13 @@ export function Header() {
     );
   }
 
-  const headerBg = headerInTop
+  let headerProps: SystemStyleObject = headerInTop
     ? { '&': { bg: 'transparent' } }
     : glassmorphismContainer({ bg: 'blueAlpha.500' });
+
+  if (headerFilled) {
+    headerProps = { '&': { bg: 'blue.900', color: 'white' } };
+  }
 
   return (
     <>
@@ -90,7 +102,7 @@ export function Header() {
         h="100px"
         w="full"
         transition="0.2s ease-in-out"
-        sx={headerBg}
+        sx={headerProps}
       >
         <Flex
           as={Fade}

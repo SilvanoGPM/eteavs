@@ -5,7 +5,7 @@ import eteImg from '$assets/images/ete.jpg';
 export function AboutUs() {
   return (
     <Flex
-      data-scroll="about-us"
+      id="sobre"
       scrollMarginTop={{ base: '20px', md: '120px' }}
       flexGrow="1"
       w="full"
@@ -23,7 +23,7 @@ export function AboutUs() {
           <Box w="50px" h="4px" bg="yellow.500" rounded="full" />
         </Center>
 
-        <Text color="gray.900" textAlign="justify">
+        <Text color="gray.900" textAlign={{ base: 'left', md: 'justify' }}>
           A 43ª Escola Técnica Estadual (ETE) inaugurada em 5 de julho de 2018,
           e a primeira de Garanhuns. Ela é composta por seis blocos interligados
           por passarelas cobertas: auditório, bloco de acesso e biblioteca,
@@ -36,7 +36,7 @@ export function AboutUs() {
         </Text>
       </Center>
 
-      <Center flex="1">
+      <Center flex="1" display={{ base: 'none', lg: 'flex' }}>
         <Box w="full" h="full" overflow="hidden">
           <Image
             w="full"

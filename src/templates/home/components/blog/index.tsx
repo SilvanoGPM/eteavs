@@ -15,7 +15,13 @@ import Link from 'next/link';
 
 export function Blog() {
   return (
-    <Flex w="full" direction="column" py="12">
+    <Flex
+      id="blog"
+      scrollMarginTop={{ base: '20px', md: '120px' }}
+      w="full"
+      direction="column"
+      py="12"
+    >
       <Center flexDir="column">
         <Heading textAlign="left" fontSize="3xl">
           Blog

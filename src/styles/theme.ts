@@ -70,6 +70,7 @@ export const theme = extendTheme({
     global: {
       html: {
         ...thinScrollbar,
+        scrollBehavior: 'smooth',
       },
 
       body: {
