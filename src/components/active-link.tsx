@@ -1,7 +1,8 @@
+import { Link } from '@chakra-ui/next-js';
 import { LinkProps as ChakraLinkProps } from '@chakra-ui/react';
 import { usePathname } from 'next/navigation';
-import { Link } from '@chakra-ui/next-js';
 
+import { useUIStore } from '$stores/ui';
 import { Replace } from '$utils/replace';
 
 interface ActiveLinkProps extends Replace<ChakraLinkProps, { href: string }> {
@@ -13,6 +14,7 @@ export function ActiveLink({
   shouldMatchExactHref,
   ...props
 }: ActiveLinkProps) {
+  const { closeSidebar } = useUIStore();
   const pathname = usePathname();
 
   let isActive = false;
@@ -32,9 +34,10 @@ export function ActiveLink({
   }
 
   if (
-    !shouldMatchExactHref &&
-    (pathname.startsWith(String(props.href)) ||
-      pathname.startsWith(String(props.as)))
+    (!shouldMatchExactHref &&
+      (pathname.startsWith(String(props.href)) ||
+        pathname.startsWith(String(props.as)))) ||
+    pathname.includes('#' + String(props.href) || String(props.as))
   ) {
     isActive = true;
   }
@@ -42,7 +45,13 @@ export function ActiveLink({
   const color = isActive ? 'blue.500' : 'white';
 
   return (
-    <Link color={color} fontWeight="semibold" fontSize="xl" {...props}>
+    <Link
+      color={color}
+      onClick={closeSidebar}
+      fontWeight="semibold"
+      fontSize="xl"
+      {...props}
+    >
       {children}
     </Link>
   );

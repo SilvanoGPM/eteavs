@@ -29,7 +29,14 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export function Footer() {
   return (
-    <Box as="footer" mt="8" borderTop="1px solid" borderColor="gray.300">
+    <Box
+      id="contanto"
+      scrollMarginTop={{ base: '20px', md: '120px' }}
+      as="footer"
+      mt="8"
+      borderTop="1px solid"
+      borderColor="gray.300"
+    >
       <Stack py="10" px={['4', '4', '8']}>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr' }}

@@ -21,8 +21,8 @@ const links = [
 
   { href: '/#sobre', text: 'Sobre Nós', icon: PiInfoFill },
   { href: '/#ensino', text: 'Ensino', icon: PiPencilSimpleFill },
-  { href: '/#galeria', text: 'Galeria', icon: PiCameraFill },
   { href: '/#blog', text: 'Blog', icon: PiNewspaperFill },
+  { href: '/#galeria', text: 'Galeria', icon: PiCameraFill },
 ];
 
 export function Navbar({ isLargeScreen }: ContentProps) {

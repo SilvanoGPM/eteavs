@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, Icon, Image, Text } from '@chakra-ui/react';
+import { Flex, Heading, Icon, Image, Text } from '@chakra-ui/react';
 import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
 
 import { BackgroundVideo } from '$components/background-video';
@@ -49,13 +49,14 @@ export function Hero() {
               Saber Mais
             </ScrollButton>
 
-            <Button
+            <ScrollButton
+              dataScroll="contanto"
               size={{ base: 'sm', sm: 'md' }}
               variant="customOutline"
               rightIcon={<Icon as={PiPhoneFill} />}
             >
               Contato
-            </Button>
+            </ScrollButton>
           </Flex>
         </Flex>
 
