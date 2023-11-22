@@ -1,0 +1,29 @@
+overrite: true
+schema:
+  - https://graphql.datocms.com:
+      headers:
+        Authorization: "49e44536c2d6d384116e3993431228"
+documents: 'src/graphql/queries.ts'
+generates:
+  src/graphql/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations:
+          strictScalars: true
+          scalars:
+            BooleanType: boolean
+            CustomData: Record<string, unknown>
+            Date: string
+            DateTime: string
+            FloatType: number
+            IntType: number
+            ItemId: string
+            JsonField: unknown
+            MetaTagAttributes: Record<string, string>
+            UploadId: string
+      - typed-document-node
+      - add:
+            content: '/* eslint-disable */'
+    config:
+      namingConvention:
+       enumValues: keep

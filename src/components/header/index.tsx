@@ -1,24 +1,18 @@
 'use client';
 
-import {
-  Box,
-  Center,
-  Fade,
-  Flex,
-  SystemStyleObject,
-  useEventListener,
-} from '@chakra-ui/react';
+import { Box, Center, Fade, Flex, SystemStyleObject } from '@chakra-ui/react';
 
 import { useScreenVersion } from '$hooks/use-screen-version';
 import { useUIStore } from '$stores/ui';
 import { throttle } from '$utils/throttle';
 
 import { glassmorphismContainer } from '$styles/tokens';
+import { useEffect } from 'react';
 import { Content } from './content';
 import { Logo } from './logo';
 import { SidebarButtons } from './sidebar-buttons';
 
-const ON_SCROLL_THROTTLE_MILLIS = 200;
+const ON_SCROLL_THROTTLE_MILLIS = 500;
 const MIN_HEIGHT_TO_TOP = 50;
 
 export function Header() {
@@ -27,18 +21,44 @@ export function Header() {
 
   const isLargeScreen = useScreenVersion('lg');
 
-  function onScroll() {
-    if (isLargeScreen) {
-      setHeaderInTop(window.scrollY < MIN_HEIGHT_TO_TOP);
-    }
-  }
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      if (isLargeScreen) {
+        setHeaderInTop(window.scrollY < MIN_HEIGHT_TO_TOP);
+      }
+    }, ON_SCROLL_THROTTLE_MILLIS);
 
-  useEventListener('scroll', throttle(onScroll, ON_SCROLL_THROTTLE_MILLIS));
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  let headerProps: SystemStyleObject = headerInTop
+    ? { '&': { bg: 'transparent' } }
+    : glassmorphismContainer({ bg: 'blueAlpha.500' });
+
+  if (headerFilled) {
+    headerProps = { '&': { bg: 'blue.900', color: 'white', boxShadow: '2xl' } };
+  }
 
   if (!isLargeScreen) {
     return (
-      <Fade in>
-        <Logo pos="absolute" top="8" left={['4', '4', '8']} h="40px" />
+      <Flex
+        pos="fixed"
+        top="0"
+        left="0"
+        right="0"
+        zIndex="10"
+        align="center"
+        justify="space-between"
+        h="80px"
+        px="8"
+        sx={headerProps}
+      >
+        <Logo h="40px" />
 
         <Box
           boxSize="2rem"
@@ -70,23 +90,15 @@ export function Header() {
           w="100%"
           overflow="hidden"
           transition={
-            sidebarIsOpen ? '0.5s ease-in-out 0.2s' : '0.2s ease-in-out'
+            sidebarIsOpen ? '0.5s ease-in-out 0.2s' : '0.2s ease-in-out 0.2s'
           }
         >
           <Content isLargeScreen={isLargeScreen} />
         </Flex>
 
         <SidebarButtons sidebarIsOpen={sidebarIsOpen} />
-      </Fade>
+      </Flex>
     );
-  }
-
-  let headerProps: SystemStyleObject = headerInTop
-    ? { '&': { bg: 'transparent' } }
-    : glassmorphismContainer({ bg: 'blueAlpha.500' });
-
-  if (headerFilled) {
-    headerProps = { '&': { bg: 'blue.900', color: 'white' } };
   }
 
   return (

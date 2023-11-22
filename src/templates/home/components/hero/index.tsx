@@ -1,5 +1,6 @@
-import { Flex, Heading, Icon, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Icon, Image, Text } from '@chakra-ui/react';
 import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
+import Markdown from 'react-markdown';
 
 import { BackgroundVideo } from '$components/background-video';
 import { DefaultContainer } from '$components/default-container';
@@ -8,14 +9,18 @@ import student1Img from '$assets/images/student1.png';
 import student2Img from '$assets/images/student2.png';
 import { ScrollButton } from '$components/scroll-button';
 
-export function Hero() {
+interface HeroProps {
+  introduction: string;
+}
+
+export function Hero({ introduction }: HeroProps) {
   return (
     <>
       <BackgroundVideo />
 
       <Flex
         id="home"
-        scrollMarginTop={{ base: '20px', md: '120px' }}
+        scrollMarginTop="120px"
         as={DefaultContainer}
         flexGrow="1"
         w="full"
@@ -33,11 +38,9 @@ export function Hero() {
             Ariano Vilar Suassuna
           </Heading>
 
-          <Text maxW="500px" color="gray.300" fontSize="sm">
-            Quem gosta de ler não morre só. <br />
-            Faça o técnico em lógistica ou desenvolvimento de sistemas na forma
-            médio integrado.
-          </Text>
+          <Box as={Markdown} maxW="500px" color="gray.300" fontSize="sm">
+            {introduction}
+          </Box>
 
           <Flex gap="2">
             <ScrollButton

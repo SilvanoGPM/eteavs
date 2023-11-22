@@ -1,12 +1,17 @@
-import { Box, Center, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Center, Flex, Heading, Image } from '@chakra-ui/react';
+import Markdown from 'react-markdown';
 
 import eteImg from '$assets/images/ete.jpg';
 
-export function AboutUs() {
+interface AboutUsProps {
+  text: string;
+}
+
+export function AboutUs({ text }: AboutUsProps) {
   return (
     <Flex
       id="sobre"
-      scrollMarginTop={{ base: '20px', md: '120px' }}
+      scrollMarginTop="120px"
       flexGrow="1"
       w="full"
       h="full"
@@ -23,17 +28,17 @@ export function AboutUs() {
           <Box w="50px" h="4px" bg="yellow.500" rounded="full" />
         </Center>
 
-        <Text color="gray.900" textAlign={{ base: 'left', md: 'justify' }}>
-          A 43ª Escola Técnica Estadual (ETE) inaugurada em 5 de julho de 2018,
-          e a primeira de Garanhuns. Ela é composta por seis blocos interligados
-          por passarelas cobertas: auditório, bloco de acesso e biblioteca,
-          bloco de serviços e vivência, quadra poliesportiva coberta – com
-          vestiários e sala multiuso – laboratórios especiais e um bloco
-          pedagógico/administrativo. Este último dividido em 12 salas de aula e
-          laboratórios de Biologia, Química, Física, Matemática, Línguas e
-          Informática. Que aliada com a excelência pedagógica, auxilia os alunos
-          na construção do seu conhecimento de forma integral.
-        </Text>
+        <Box
+          as={Markdown}
+          sx={{
+            p: {
+              color: 'gray.900',
+              textAlign: { base: 'left', md: 'justify' },
+            },
+          }}
+        >
+          {text}
+        </Box>
       </Center>
 
       <Center flex="1" display={{ base: 'none', lg: 'flex' }}>

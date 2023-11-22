@@ -10,13 +10,13 @@ export function SidebarButton({
 }: Replace<IconButtonProps, { icon: IconType }>) {
   return (
     <IconButton
-      {...props}
       colorScheme="blackAlpha"
       bg="transparent"
       color="white"
       fontSize="4xl"
       icon={<Icon as={icon} />}
       onClick={onClick}
+      {...props}
     />
   );
 }

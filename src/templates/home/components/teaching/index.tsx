@@ -1,18 +1,30 @@
-import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Center, Flex, Heading } from '@chakra-ui/react';
 import Wave from 'react-wavify';
 
 import { TeachingCard } from '$components/teaching-card';
 import { thinScrollbar } from '$styles/tokens';
 
-import emImg from '$assets/images/em.jpeg';
 import eadImg from '$assets/images/ead.jpeg';
+import emImg from '$assets/images/em.jpeg';
 import subsequenteImg from '$assets/images/subsequente.jpeg';
+import { Markdown } from '$components/markdown';
 
-export function Teaching() {
+export interface TeachingOption {
+  resume: string;
+  full: string;
+}
+
+export interface TeachingProps {
+  em: TeachingOption;
+  sub: TeachingOption;
+  ead: TeachingOption;
+}
+
+export function Teaching({ em, sub, ead }: TeachingProps) {
   return (
     <Flex
       id="ensino"
-      scrollMarginTop={{ base: '20px', md: '120px' }}
+      scrollMarginTop="120px"
       w="full"
       flexDir="column"
       bg="blue.900"
@@ -51,85 +63,22 @@ export function Teaching() {
         <TeachingCard
           image={emImg.src}
           title="Ensino médio integrado"
-          description="As opções de ensino técnico de nível médio permitem que todos os estudantes da rede estadual pelo Estado tenham a oportunidade de se qualificarem sem sair das suas regiões de desenvolvimento, garantindo formação específica e direcionada ao mercado de trabalho."
-          body={
-            <Flex direction="column" gap="4">
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-            </Flex>
-          }
+          description={em.resume}
+          body={<Markdown>{em.full}</Markdown>}
         />
 
         <TeachingCard
           image={subsequenteImg.src}
           title="Subsequente"
-          description="Subsequente ao Ensino Médio: oferecida somente a quem já tenha concluído o ensino médio"
-          body={
-            <Flex direction="column" gap="4">
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-            </Flex>
-          }
+          description={sub.resume}
+          body={<Markdown>{sub.full}</Markdown>}
         />
 
         <TeachingCard
           image={eadImg.src}
           title="Ensino a distância"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eaque, excepturi vero quam, voluptatibus illum nesciunt sequi rerum ratione voluptatem nisi temporibus iusto est veritatis doloremque, magnam tenetur mollitia. Delectus."
-          body={
-            <Flex direction="column" gap="4">
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt
-                in explicabo consequuntur ratione autem corporis sequi nobis
-                eius aperiam qui, voluptatem debitis harum laborum, magni beatae
-                placeat quasi, numquam modi?
-              </Text>
-            </Flex>
-          }
+          description={ead.resume}
+          body={<Markdown>{ead.full}</Markdown>}
         />
       </Flex>
     </Flex>

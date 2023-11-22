@@ -16,13 +16,15 @@ interface NewsLinkProps extends FlexProps {
 export function NewsLink({ news, isSmall = false, ...props }: NewsLinkProps) {
   const shimmerAnimation = useShimmerAnimation();
 
+  // TODO: Remover o link fixo
+
   return (
     <Flex
       pos="relative"
       w="full"
       h="full"
       as={Link}
-      href={news.link}
+      href={`/blog${news.link}test`}
       title={news.title}
       role="group"
       overflow="hidden"

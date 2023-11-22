@@ -62,8 +62,8 @@ export const theme = extendTheme({
   },
 
   fonts: {
-    heading: 'var(--font-lato)',
-    body: 'var(--font-lato)',
+    heading: 'var(--font-montserrant)',
+    body: 'var(--font-montserrant)',
   },
 
   styles: {

@@ -31,7 +31,7 @@ export function Footer() {
   return (
     <Box
       id="contanto"
-      scrollMarginTop={{ base: '20px', md: '120px' }}
+      scrollMarginTop="120px"
       as="footer"
       mt="8"
       borderTop="1px solid"

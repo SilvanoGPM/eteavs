@@ -1,7 +1,7 @@
-import { Link } from '@chakra-ui/next-js';
-import { LinkProps as ChakraLinkProps } from '@chakra-ui/react';
-import { usePathname } from 'next/navigation';
+import { LinkProps as ChakraLinkProps, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
+import { useScrollLock } from '$hooks/use-scroll-lock';
 import { useUIStore } from '$stores/ui';
 import { Replace } from '$utils/replace';
 
@@ -15,7 +15,14 @@ export function ActiveLink({
   ...props
 }: ActiveLinkProps) {
   const { closeSidebar } = useUIStore();
-  const pathname = usePathname();
+  const { unlockScroll } = useScrollLock();
+
+  const pathname = ''; // TODO: Arrumar isso
+
+  function handleCloseSidebar() {
+    closeSidebar();
+    unlockScroll();
+  }
 
   let isActive = false;
 
@@ -26,10 +33,7 @@ export function ActiveLink({
     isActive = true;
   }
 
-  if (
-    shouldMatchExactHref &&
-    (pathname === props.href || pathname === props.as)
-  ) {
+  if (shouldMatchExactHref && pathname === props.href) {
     isActive = true;
   }
 
@@ -46,8 +50,9 @@ export function ActiveLink({
 
   return (
     <Link
+      as={NextLink}
       color={color}
-      onClick={closeSidebar}
+      onClick={handleCloseSidebar}
       fontWeight="semibold"
       fontSize="xl"
       {...props}

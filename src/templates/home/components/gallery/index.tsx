@@ -17,7 +17,7 @@ export function Gallery() {
     <>
       <Flex
         id="galeria"
-        scrollMarginTop={{ base: '20px', md: '120px' }}
+        scrollMarginTop="120px"
         w="full"
         direction="column"
         bg="blue.900"
