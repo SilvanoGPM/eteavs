@@ -12,7 +12,7 @@ export function BackgroundVideo() {
       left="0"
       right="0"
       bottom="0"
-      maxH="100vh"
+      maxH={{ base: '90vh', lg: '100vh' }}
       bgImage="/assets/bgCover.png"
       bgSize="cover"
       bgColor="blue.900"

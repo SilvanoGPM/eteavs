@@ -25,7 +25,7 @@ export function Hero({ introduction }: HeroProps) {
         flexGrow="1"
         w="full"
         h="full"
-        minH={{ base: '100vh', lg: 'calc(100vh - 100px)' }}
+        minH={{ base: '90vh', lg: 'calc(100vh - 100px)' }}
         pos="relative"
         align="end"
       >
