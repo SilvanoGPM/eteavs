@@ -7,17 +7,20 @@ import { Teaching, TeachingProps } from './components/teaching';
 
 import { useHeaderFilled } from '$hooks/use-header-filled';
 import { Gallery } from './components/gallery';
+import { News } from '$components/news-link';
 
 export interface HomeTemplateProps {
   introduction: string;
   aboutUs: string;
   teaching: TeachingProps;
+  news: News[];
 }
 
 export function HomeTemplate({
   introduction,
   aboutUs,
   teaching,
+  news,
 }: HomeTemplateProps) {
   useHeaderFilled(false);
 
@@ -27,7 +30,7 @@ export function HomeTemplate({
       <AboutUs text={aboutUs} />
       <Teaching {...teaching} />
 
-      <Blog />
+      <Blog news={news} />
 
       <Gallery />
     </>

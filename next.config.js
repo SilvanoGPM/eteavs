@@ -10,6 +10,9 @@ const withPWA = require('next-pwa')({
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['www.datocms-assets.com'],
+  },
 };
 
 module.exports = withPWA({

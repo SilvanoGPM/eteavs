@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 import { ColorModeScript } from '@chakra-ui/react';
+import { SplashScreen } from '$components/splash-screen';
 
 export default function Document() {
   return (
@@ -21,6 +22,7 @@ export default function Document() {
 
       <body>
         <ColorModeScript initialColorMode="light" />
+        <SplashScreen />
         <Main />
         <NextScript />
       </body>

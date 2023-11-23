@@ -1,7 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { CustomHeader } from './custom-header';
+import { Image } from '$components/image';
 
 export const components = {
   h1(props: any) {
@@ -31,7 +32,7 @@ export const components = {
   p: (paragraph: { children?: any; node?: any }) => {
     const { node } = paragraph;
 
-    if (node.children[0].tagName === 'img') {
+    if (node.children[0]?.tagName === 'img') {
       const image = node.children[0];
 
       return (

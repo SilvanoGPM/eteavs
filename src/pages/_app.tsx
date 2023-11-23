@@ -12,6 +12,9 @@ import { useUIStore } from '$stores/ui';
 import { theme } from '$styles/theme';
 
 import { useScrollLock } from '$hooks/use-scroll-lock';
+import { useSplashScreen } from '$hooks/use-splash-screen';
+import { queryClient } from '$services/query-client';
+import { QueryClientProvider } from '@tanstack/react-query';
 import SEO from 'next-seo.config';
 
 const montserrant = Montserrat({
@@ -20,6 +23,8 @@ const montserrant = Montserrat({
 });
 
 function App({ Component, pageProps }: AppProps) {
+  useSplashScreen('hide');
+
   const { closeSidebar } = useUIStore();
   const { unlockScroll } = useScrollLock();
 
@@ -49,7 +54,9 @@ function App({ Component, pageProps }: AppProps) {
 
       <ChakraProvider theme={theme}>
         <CacheProvider>
-          <Component {...pageProps} />
+          <QueryClientProvider client={queryClient}>
+            <Component {...pageProps} />
+          </QueryClientProvider>
         </CacheProvider>
       </ChakraProvider>
 

@@ -2,6 +2,7 @@ import { DefaultLayout } from '$components/default-layout';
 import { GetHomeInfoDocument } from '$graphql/generated';
 import { request } from '$services/datocms/client';
 import { HomeTemplate, HomeTemplateProps } from '$templates/home';
+import { formatNewsLink } from '$utils/format-news-link';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 
@@ -28,6 +29,8 @@ export default function Home(props: HomeTemplateProps) {
 export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
   const data = await request(GetHomeInfoDocument);
 
+  const news = formatNewsLink(data.allBlogs);
+
   const props: HomeTemplateProps = {
     introduction: String(data.home?.introduction),
     aboutUs: String(data.home?.aboutUs),
@@ -47,6 +50,8 @@ export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
         full: String(data.home?.teachingEad),
       },
     },
+
+    news,
   };
 
   return {
