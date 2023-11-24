@@ -2,7 +2,7 @@ import { DefaultLayout } from '$components/default-layout';
 import { findNews } from '$http/find-news';
 import { getNews } from '$http/get-news';
 import { News, NewsTemplate, NewsTemplateProps } from '$templates/news';
-import { formatNewsDate } from '$utils/format-date';
+import { formatDateExtended } from '$utils/format-date';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 
@@ -53,8 +53,8 @@ export const getStaticProps: GetStaticProps<NewsTemplateProps> = async ({
   const news: News = {
     title: String(data.blog.title),
     content: String(data.blog.content),
-    createdAt: formatNewsDate(String(data.blog._createdAt)),
-    updatedAt: formatNewsDate(String(data.blog._updatedAt)),
+    createdAt: formatDateExtended(String(data.blog._createdAt)),
+    updatedAt: formatDateExtended(String(data.blog._updatedAt)),
     resume: String(data.blog.resume),
     thumbnail: String(data.blog.thumbnail?.url),
   };

@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request';
 
 export const GET_HOME_INFO = gql`
-  query getHomeInfo($first: IntType) {
+  query getHomeInfo($newsFirst: IntType, $photosFirst: IntType) {
     home {
       introduction
       aboutUs
@@ -16,7 +16,16 @@ export const GET_HOME_INFO = gql`
       teachingEad
     }
 
-    allBlogs(first: $first, orderBy: _createdAt_DESC) {
+    allBlogs(first: $newsFirst, orderBy: _createdAt_DESC) {
+      slug
+      _createdAt
+      title
+      thumbnail {
+        url
+      }
+    }
+
+    allPhotos(first: $photosFirst, orderBy: _createdAt_DESC) {
       slug
       _createdAt
       title
@@ -59,6 +68,48 @@ export const GET_NEWS = gql`
       thumbnail {
         url
         alt
+      }
+    }
+  }
+`;
+
+export const FIND_PHOTOS = gql`
+  query findPhotos($first: IntType, $skip: IntType) {
+    allPhotos(first: $first, skip: $skip, orderBy: _createdAt_DESC) {
+      slug
+      _createdAt
+      _updatedAt
+      title
+      description
+      thumbnail {
+        url
+        alt
+      }
+      images {
+        url
+      }
+    }
+
+    _allBlogsMeta {
+      count
+    }
+  }
+`;
+
+export const GET_PHOTO = gql`
+  query getPhoto($slug: String) {
+    photo(filter: { slug: { eq: $slug } }) {
+      slug
+      _createdAt
+      _updatedAt
+      title
+      description
+      thumbnail {
+        url
+        alt
+      }
+      images {
+        url
       }
     }
   }
