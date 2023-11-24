@@ -90,7 +90,7 @@ export const FIND_PHOTOS = gql`
       }
     }
 
-    _allBlogsMeta {
+    _allPhotosMeta {
       count
     }
   }

@@ -1,8 +1,18 @@
-import { Box, Center, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  Icon,
+  SimpleGrid,
+} from '@chakra-ui/react';
 
 import Wave from 'react-wavify';
 
 import { Photo, PhotoLink } from '$components/photo-link';
+import { PiCaretRightBold } from 'react-icons/pi';
+import Link from 'next/link';
 
 interface GalleryProps {
   photos: Photo[];
@@ -56,6 +66,26 @@ export function Gallery({ photos }: GalleryProps) {
             <PhotoLink key={photo.slug} photo={photo} />
           ))}
         </SimpleGrid>
+
+        <Flex justify="center" w="full" mt={12}>
+          <Button
+            as={Link}
+            borderColor="white"
+            color="white"
+            href="/galeria"
+            variant="outline"
+            filter="auto"
+            _hover={{
+              brightness: '0.8',
+            }}
+            _active={{
+              brightness: '0.8',
+            }}
+            rightIcon={<Icon as={PiCaretRightBold} />}
+          >
+            Ver Mais
+          </Button>
+        </Flex>
       </Flex>
     </>
   );

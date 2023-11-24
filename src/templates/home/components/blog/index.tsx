@@ -68,6 +68,13 @@ export function Blog({ news }: BlogProps) {
               colorScheme="blue"
               href="/blog"
               variant="outline"
+              filter="auto"
+              _hover={{
+                brightness: '0.8',
+              }}
+              _active={{
+                brightness: '0.8',
+              }}
               rightIcon={<Icon as={PiCaretRightBold} />}
             >
               Ver Mais
