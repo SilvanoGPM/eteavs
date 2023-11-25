@@ -17,14 +17,17 @@ export function BackgroundVideo() {
       bgSize="cover"
       bgColor="blue.900"
       overflow="hidden"
-      sx={{ video: { objectFit: 'cover' } }}
+      sx={{
+        video: { objectFit: 'cover' },
+      }}
     >
       <ReactPlayer
-        url="/assets/bg2.mp4#t=0.1"
+        url="/assets/bg.mp4#t=0.1"
         playing
         loop
         muted
         playsinline
+        webkit-playsinline
         controls={false}
         pip={false}
         volume={0}

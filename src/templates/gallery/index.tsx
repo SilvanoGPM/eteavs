@@ -85,7 +85,7 @@ export function GalleryTemplate() {
                   {photosQuery.data.map((photo, index) => (
                     <Box
                       as={Fade}
-                      fraction={0.3}
+                      fraction={0.15}
                       key={photo.slug}
                       delay={index > 2 ? 0 : 1000 * (index + 1) * 0.5}
                       h={{ base: '320px', sm: '420px' }}
