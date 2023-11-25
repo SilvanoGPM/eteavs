@@ -81,7 +81,7 @@ export function Gallery({ photos }: GalleryProps) {
         </SimpleGrid>
 
         <Flex justify="center" w="full" mt={12}>
-          <Fade delay={1000}>
+          <Fade delay={200}>
             <Button
               as={Link}
               borderColor="white"

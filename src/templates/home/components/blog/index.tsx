@@ -103,7 +103,7 @@ export function Blog({ news }: BlogProps) {
 
         <GridItem colSpan={12}>
           <Fade
-            delay={1000}
+            delay={200}
             style={{ width: '100%', height: '100%', flex: '1', flexGrow: '1' }}
           >
             <Flex justify="center" w="full" mt={8}>

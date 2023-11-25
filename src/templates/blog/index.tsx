@@ -85,7 +85,7 @@ export function BlogTemplate() {
                   {newsQuery.data.map((news, index) => (
                     <Box
                       as={Fade}
-                      fraction={0.15}
+                      fraction={0.1}
                       delay={index > 2 ? 0 : 1000 * (index + 1) * 0.5}
                       key={news.slug}
                       pos="relative"
