@@ -1,5 +1,6 @@
 'use client';
 
+import { Fade } from '$components/animations/fade';
 import { Image } from '$components/image';
 import { Markdown } from '$components/markdown';
 import { useHeaderFilled } from '$hooks/use-header-filled';
@@ -35,43 +36,53 @@ export function NewsTemplate({ news }: NewsTemplateProps) {
         px={{ base: '4' }}
       >
         <Flex direction="column" mb="4">
-          <Heading maxW="100%" fontSize="2xl" title={news.title}>
-            {news.title}
-          </Heading>
+          <Fade delay={300}>
+            <Heading maxW="100%" fontSize="2xl" title={news.title}>
+              {news.title}
+            </Heading>
+          </Fade>
 
-          <Text color="gray.500" as={Markdown} mt="2">
-            {news.resume}
-          </Text>
+          <Fade delay={500}>
+            <Text color="gray.500" as={Markdown} mt="2">
+              {news.resume}
+            </Text>
+          </Fade>
 
-          <Text
-            as="time"
-            color="gray700"
-            mb="2"
-            mt="4"
-            fontSize="md"
-            display="flex"
-            alignItems="center"
-          >
-            <Icon as={PiCalendarBlank} mr="1" /> {news.createdAt}
-          </Text>
+          <Fade delay={700}>
+            <Text
+              as="time"
+              color="gray700"
+              mb="2"
+              mt="4"
+              fontSize="md"
+              display="flex"
+              alignItems="center"
+            >
+              <Icon as={PiCalendarBlank} mr="1" /> {news.createdAt}
+            </Text>
+          </Fade>
         </Flex>
 
-        <Box w="full" h="400px" rounded="2xl" overflow="hidden">
-          <Image
-            w="full"
-            h="full"
-            objectFit="cover"
-            title={news.title}
-            alt={news.title}
-            src={news.thumbnail}
-            filter="auto"
-            brightness="0.5"
-          />
-        </Box>
+        <Fade delay={900}>
+          <Box w="full" h="400px" rounded="2xl" overflow="hidden">
+            <Image
+              w="full"
+              h="full"
+              objectFit="cover"
+              title={news.title}
+              alt={news.title}
+              src={news.thumbnail}
+              filter="auto"
+              brightness="0.5"
+            />
+          </Box>
+        </Fade>
 
-        <Box w="full" mt="8" as={Markdown}>
-          {news.content}
-        </Box>
+        <Fade delay={200}>
+          <Box w="full" mt="8" as={Markdown}>
+            {news.content}
+          </Box>
+        </Fade>
       </Flex>
     </>
   );

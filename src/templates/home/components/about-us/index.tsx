@@ -20,6 +20,7 @@ export function AboutUs({ text }: AboutUsProps) {
       gap="8"
       minH={{ base: '400px', md: '500px' }}
       direction={['column', 'column', 'row']}
+      py={{ base: '8', lg: '0' }}
     >
       <Center flexDir="column" flex="1" gap="4" p={{ base: '4', md: '8' }}>
         <SlideFade>

@@ -1,5 +1,6 @@
 'use client';
 
+import { Fade } from '$components/animations/fade';
 import { DefaultContainer } from '$components/default-container';
 import { NewsLink } from '$components/news-link';
 import { Pagination } from '$components/pagination';
@@ -11,7 +12,7 @@ import {
   Heading,
   Icon,
   SimpleGrid,
-  Spinner,
+  Skeleton,
   Text,
 } from '@chakra-ui/react';
 import { PiNewspaperFill } from 'react-icons/pi';
@@ -42,19 +43,34 @@ export function BlogTemplate() {
           mt={{ base: '8', lg: '0' }}
           gap="2"
         >
-          <Heading maxW="100%" fontSize="2xl" textAlign="center">
-            Blog
-          </Heading>
+          <Fade delay={500}>
+            <Heading maxW="100%" fontSize="2xl" textAlign="center">
+              Blog
+            </Heading>
+          </Fade>
 
-          <Text color="gray.500" maxW="550px" textAlign="center">
-            Notícias sobre a Escola Técnica Estadual Ariano Vilar Suassuna
-          </Text>
+          <Fade delay={700}>
+            <Text color="gray.500" maxW="550px" textAlign="center">
+              Notícias sobre a Escola Técnica Estadual Ariano Vilar Suassuna
+            </Text>
+          </Fade>
         </Center>
 
         {newsQuery.isLoading ? (
-          <Center>
-            <Spinner color="yellow.500" size="xl" />
-          </Center>
+          <SimpleGrid
+            w="full"
+            px="4"
+            spacing={4}
+            minChildWidth={{ base: '220px', sm: '320px' }}
+            justifyItems="center"
+          >
+            <Skeleton w="full" h={{ base: '220px', sm: '320px' }} />
+            <Skeleton w="full" h={{ base: '220px', sm: '320px' }} />
+            <Skeleton w="full" h={{ base: '220px', sm: '320px' }} />
+            <Skeleton w="full" h={{ base: '220px', sm: '320px' }} />
+            <Skeleton w="full" h={{ base: '220px', sm: '320px' }} />
+            <Skeleton w="full" h={{ base: '220px', sm: '320px' }} />
+          </SimpleGrid>
         ) : (
           <>
             {newsQuery.data ? (
@@ -66,8 +82,11 @@ export function BlogTemplate() {
                   minChildWidth={{ base: '220px', sm: '320px' }}
                   justifyItems="center"
                 >
-                  {newsQuery.data.map((news) => (
+                  {newsQuery.data.map((news, index) => (
                     <Box
+                      as={Fade}
+                      fraction={0.3}
+                      delay={index > 2 ? 0 : 1000 * (index + 1) * 0.5}
                       key={news.slug}
                       pos="relative"
                       h={{ base: '220px', sm: '320px' }}

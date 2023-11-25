@@ -61,7 +61,8 @@ export function Teaching({ em, sub, ead }: TeachingProps) {
         p="4"
         bg="blue.900"
         pos="relative"
-        overflow="auto"
+        overflowX="auto"
+        overflowY="hidden"
         sx={thinScrollbar}
       >
         <SlideFade delay={500} direction="up">

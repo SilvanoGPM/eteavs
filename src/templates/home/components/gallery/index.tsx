@@ -71,7 +71,7 @@ export function Gallery({ photos }: GalleryProps) {
               as={Fade}
               fraction={0}
               key={photo.slug}
-              delay={500 * (index + 1) * 0.5}
+              delay={index > 2 ? 0 : 500 * (index + 1) * 0.5}
               h={{ base: '320px', sm: '420px' }}
               w="100%"
             >

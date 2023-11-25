@@ -22,6 +22,7 @@ export function PhotoLink({ photo, ...props }: PhotoLinkProps) {
   return (
     <Box
       as={Link}
+      title={photo.title}
       display="block"
       href={`/galeria/${photo.slug}`}
       pos="relative"

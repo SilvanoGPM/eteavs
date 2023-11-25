@@ -18,6 +18,8 @@ import {
 import { ReactNode } from 'react';
 
 import { PiArrowRightBold } from 'react-icons/pi';
+import { SlideFade } from './animations/slide-fade';
+import { Fade } from './animations/fade';
 
 interface TeachingCardProps {
   image: string;
@@ -54,17 +56,24 @@ export function TeachingCard({
         </Box>
 
         <Flex direction="column" p="4">
-          <Heading as="h4" fontSize={{ base: 'xl', md: '2xl' }}>
-            {title}
-          </Heading>
-          <Text fontSize="sm" mt={{ base: '2', md: '4' }} color="gray.700">
-            {description}
-          </Text>
+          <SlideFade delay={300} direction="down">
+            <Heading as="h4" fontSize={{ base: 'xl', md: '2xl' }}>
+              {title}
+            </Heading>
+          </SlideFade>
+
+          <SlideFade delay={500} direction="down">
+            <Text fontSize="sm" mt={{ base: '2', md: '4' }} color="gray.700">
+              {description}
+            </Text>
+          </SlideFade>
         </Flex>
 
         <Spacer />
 
         <Button
+          as={Fade}
+          delay={1000}
           variant="customSolid"
           mx="4"
           mb={{ base: '4', md: '8' }}
