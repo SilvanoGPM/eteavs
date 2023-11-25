@@ -8,6 +8,8 @@ import eadImg from '$assets/images/ead.jpeg';
 import emImg from '$assets/images/em.jpeg';
 import subsequenteImg from '$assets/images/subsequente.jpeg';
 import { Markdown } from '$components/markdown';
+import { Fade } from '$components/animations/fade';
+import { SlideFade } from '$components/animations/slide-fade';
 
 export interface TeachingOption {
   resume: string;
@@ -28,7 +30,7 @@ export function Teaching({ em, sub, ead }: TeachingProps) {
       w="full"
       flexDir="column"
       bg="blue.900"
-      pb="8"
+      py="8"
       minH="100vh"
       pos="relative"
     >
@@ -43,13 +45,15 @@ export function Teaching({ em, sub, ead }: TeachingProps) {
         <Wave fill="var(--chakra-colors-blue-900)" />
       </Box>
 
-      <Center flexDir="column" mb="8" mt="8">
-        <Heading textAlign="center" color="white" fontSize="3xl">
-          Segmentos de Ensino
-        </Heading>
+      <Fade delay={500}>
+        <Center flexDir="column" mb="8" mt="8">
+          <Heading textAlign="center" color="white" fontSize="3xl">
+            Segmentos de Ensino
+          </Heading>
 
-        <Box w="100px" h="4px" bg="yellow.500" rounded="full" />
-      </Center>
+          <Box w="100px" h="4px" bg="yellow.500" rounded="full" />
+        </Center>
+      </Fade>
 
       <Flex
         justify={{ base: 'start', lg: 'center' }}
@@ -60,26 +64,32 @@ export function Teaching({ em, sub, ead }: TeachingProps) {
         overflow="auto"
         sx={thinScrollbar}
       >
-        <TeachingCard
-          image={emImg.src}
-          title="Ensino médio integrado"
-          description={em.resume}
-          body={<Markdown>{em.full}</Markdown>}
-        />
+        <SlideFade delay={500} direction="up">
+          <TeachingCard
+            image={emImg.src}
+            title="Ensino médio integrado"
+            description={em.resume}
+            body={<Markdown>{em.full}</Markdown>}
+          />
+        </SlideFade>
 
-        <TeachingCard
-          image={subsequenteImg.src}
-          title="Subsequente"
-          description={sub.resume}
-          body={<Markdown>{sub.full}</Markdown>}
-        />
+        <SlideFade delay={700} direction="up">
+          <TeachingCard
+            image={subsequenteImg.src}
+            title="Subsequente"
+            description={sub.resume}
+            body={<Markdown>{sub.full}</Markdown>}
+          />
+        </SlideFade>
 
-        <TeachingCard
-          image={eadImg.src}
-          title="Ensino a distância"
-          description={ead.resume}
-          body={<Markdown>{ead.full}</Markdown>}
-        />
+        <SlideFade delay={900} direction="up">
+          <TeachingCard
+            image={eadImg.src}
+            title="Ensino a distância"
+            description={ead.resume}
+            body={<Markdown>{ead.full}</Markdown>}
+          />
+        </SlideFade>
       </Flex>
     </Flex>
   );

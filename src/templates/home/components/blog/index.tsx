@@ -10,8 +10,10 @@ import {
 } from '@chakra-ui/react';
 import { PiCaretRightBold } from 'react-icons/pi';
 
+import { SlideFade } from '$components/animations/slide-fade';
 import { News, NewsLink } from '$components/news-link';
 import Link from 'next/link';
+import { Fade } from '$components/animations/fade';
 
 interface BlogProps {
   news: News[];
@@ -21,14 +23,23 @@ export function Blog({ news }: BlogProps) {
   const [first, second, thrid, fourth, fifth] = news;
 
   return (
-    <Flex id="blog" scrollMarginTop="120px" w="full" direction="column" py="12">
-      <Center flexDir="column">
-        <Heading textAlign="left" fontSize="3xl">
-          Blog
-        </Heading>
+    <Flex
+      id="blog"
+      scrollMarginTop="120px"
+      w="full"
+      direction="column"
+      pt="20"
+      pb="12"
+    >
+      <SlideFade delay={200} direction="down">
+        <Center flexDir="column">
+          <Heading textAlign="left" fontSize="3xl">
+            Blog
+          </Heading>
 
-        <Box w="50px" h="4px" bg="yellow.500" rounded="full" />
-      </Center>
+          <Box w="50px" h="4px" bg="yellow.500" rounded="full" />
+        </Center>
+      </SlideFade>
 
       <Grid
         templateColumns="repeat(12, 1fr)"
@@ -38,48 +49,82 @@ export function Blog({ news }: BlogProps) {
         p={{ base: '4', lg: '8' }}
       >
         <GridItem gridArea={{ base: 'span 1 / span 12', md: '1 / 1 / 3 / 7' }}>
-          <NewsLink news={first} />
+          <SlideFade
+            delay={300}
+            style={{ width: '100%', height: '100%', flex: '1', flexGrow: '1' }}
+          >
+            <NewsLink news={first} />
+          </SlideFade>
         </GridItem>
 
         <GridItem gridArea={{ base: 'span 1 / span 12', md: '1 / 7 / 2 / 10' }}>
-          <NewsLink isSmall news={second} />
+          <SlideFade
+            delay={500}
+            direction="down"
+            style={{ width: '100%', height: '100%', flex: '1', flexGrow: '1' }}
+          >
+            <NewsLink isSmall news={second} />
+          </SlideFade>
         </GridItem>
 
         <GridItem
           gridArea={{ base: 'span 1 / span 12', md: '1 / 10 / 2 / 13' }}
         >
-          <NewsLink isSmall news={thrid} />
+          <SlideFade
+            delay={700}
+            direction="down"
+            style={{ width: '100%', height: '100%', flex: '1', flexGrow: '1' }}
+          >
+            <NewsLink isSmall news={thrid} />
+          </SlideFade>
         </GridItem>
 
         <GridItem gridArea={{ base: 'span 1 / span 12', md: '2 / 7 / 3 / 10' }}>
-          <NewsLink isSmall news={fourth} />
+          <SlideFade
+            delay={500}
+            direction="up"
+            style={{ width: '100%', height: '100%', flex: '1', flexGrow: '1' }}
+          >
+            <NewsLink isSmall news={fourth} />
+          </SlideFade>
         </GridItem>
 
         <GridItem
           gridArea={{ base: 'span 1 / span 12', md: '2 / 10 / 3 / 13' }}
         >
-          <NewsLink isSmall news={fifth} />
+          <SlideFade
+            delay={700}
+            direction="up"
+            style={{ width: '100%', height: '100%', flex: '1', flexGrow: '1' }}
+          >
+            <NewsLink isSmall news={fifth} />
+          </SlideFade>
         </GridItem>
 
         <GridItem colSpan={12}>
-          <Flex justify="center" w="full" mt={8}>
-            <Button
-              as={Link}
-              colorScheme="blue"
-              href="/blog"
-              variant="outline"
-              filter="auto"
-              _hover={{
-                brightness: '0.8',
-              }}
-              _active={{
-                brightness: '0.8',
-              }}
-              rightIcon={<Icon as={PiCaretRightBold} />}
-            >
-              Ver Mais
-            </Button>
-          </Flex>
+          <Fade
+            delay={1000}
+            style={{ width: '100%', height: '100%', flex: '1', flexGrow: '1' }}
+          >
+            <Flex justify="center" w="full" mt={8}>
+              <Button
+                as={Link}
+                colorScheme="blue"
+                href="/blog"
+                variant="outline"
+                filter="auto"
+                _hover={{
+                  brightness: '0.8',
+                }}
+                _active={{
+                  brightness: '0.8',
+                }}
+                rightIcon={<Icon as={PiCaretRightBold} />}
+              >
+                Ver Mais
+              </Button>
+            </Flex>
+          </Fade>
         </GridItem>
       </Grid>
     </Flex>

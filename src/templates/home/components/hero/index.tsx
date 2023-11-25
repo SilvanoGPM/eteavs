@@ -5,9 +5,11 @@ import Markdown from 'react-markdown';
 import { BackgroundVideo } from '$components/background-video';
 import { DefaultContainer } from '$components/default-container';
 
+import { SlideFade } from '$components/animations/slide-fade';
+import { ScrollButton } from '$components/scroll-button';
+
 import student1Img from '$assets/images/student1.png';
 import student2Img from '$assets/images/student2.png';
-import { ScrollButton } from '$components/scroll-button';
 
 interface HeroProps {
   introduction: string;
@@ -30,37 +32,43 @@ export function Hero({ introduction }: HeroProps) {
         align="end"
       >
         <Flex direction="column" gap={['2', '2', '4']} pb={['10', '20']}>
-          <Heading color="blue.500" fontWeight="black">
-            <Text as="span" fontSize={['md', 'xl']} color="white">
-              Escola Técnica Estadual
-            </Text>{' '}
-            <br />
-            Ariano Vilar Suassuna
-          </Heading>
+          <SlideFade delay={1000}>
+            <Heading color="blue.500" fontWeight="black">
+              <Text as="span" fontSize={['md', 'xl']} color="white">
+                Escola Técnica Estadual
+              </Text>{' '}
+              <br />
+              Ariano Vilar Suassuna
+            </Heading>
+          </SlideFade>
 
-          <Box as={Markdown} maxW="500px" color="gray.300" fontSize="sm">
-            {introduction}
-          </Box>
+          <SlideFade delay={1000}>
+            <Box as={Markdown} maxW="500px" color="gray.300" fontSize="sm">
+              {introduction}
+            </Box>
+          </SlideFade>
 
-          <Flex gap="2">
-            <ScrollButton
-              size={{ base: 'sm', sm: 'md' }}
-              dataScroll="sobre"
-              variant="customSolid"
-              rightIcon={<Icon as={PiCaretRightBold} />}
-            >
-              Saber Mais
-            </ScrollButton>
+          <SlideFade delay={1000}>
+            <Flex gap="2">
+              <ScrollButton
+                size={{ base: 'sm', sm: 'md' }}
+                dataScroll="sobre"
+                variant="customSolid"
+                rightIcon={<Icon as={PiCaretRightBold} />}
+              >
+                Saber Mais
+              </ScrollButton>
 
-            <ScrollButton
-              dataScroll="contanto"
-              size={{ base: 'sm', sm: 'md' }}
-              variant="customOutline"
-              rightIcon={<Icon as={PiPhoneFill} />}
-            >
-              Contato
-            </ScrollButton>
-          </Flex>
+              <ScrollButton
+                dataScroll="contanto"
+                size={{ base: 'sm', sm: 'md' }}
+                variant="customOutline"
+                rightIcon={<Icon as={PiPhoneFill} />}
+              >
+                Contato
+              </ScrollButton>
+            </Flex>
+          </SlideFade>
         </Flex>
 
         <Image

@@ -24,6 +24,7 @@ export function BackgroundVideo() {
         playing
         loop
         muted
+        playsinline
         controls={false}
         pip={false}
         volume={0}
