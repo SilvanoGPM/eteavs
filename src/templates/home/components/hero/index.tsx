@@ -1,5 +1,14 @@
-import { Box, Flex, Heading, Icon, Image, Text } from '@chakra-ui/react';
-import { PiCaretRightBold, PiPhoneFill } from 'react-icons/pi';
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Icon,
+  Image,
+  Link,
+  Text,
+} from '@chakra-ui/react';
+import { PiCaretRightFill, PiPlus } from 'react-icons/pi';
 import Markdown from 'react-markdown';
 
 import { BackgroundVideo } from '$components/background-video';
@@ -54,19 +63,21 @@ export function Hero({ introduction }: HeroProps) {
                 size={{ base: 'sm', sm: 'md' }}
                 dataScroll="sobre"
                 variant="customSolid"
-                rightIcon={<Icon as={PiCaretRightBold} />}
+                rightIcon={<Icon as={PiPlus} />}
               >
                 Saber Mais
               </ScrollButton>
 
-              <ScrollButton
-                dataScroll="contanto"
+              <Button
+                as={Link}
+                isExternal
+                href="https://sisacad.educacao.pe.gov.br/sissel/"
                 size={{ base: 'sm', sm: 'md' }}
                 variant="customOutline"
-                rightIcon={<Icon as={PiPhoneFill} />}
+                rightIcon={<Icon as={PiCaretRightFill} />}
               >
-                Contato
-              </ScrollButton>
+                Inscreva-se
+              </Button>
             </Flex>
           </SlideFade>
         </Flex>

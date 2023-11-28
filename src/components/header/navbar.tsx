@@ -14,7 +14,7 @@ import { ContentProps } from './content';
 const links = [
   {
     href: '/#home',
-    text: 'Página Inicial',
+    text: 'Início',
     icon: PiHouseLineFill,
     shouldMatchExactHref: true,
   },
