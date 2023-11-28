@@ -71,6 +71,8 @@ export function Footer() {
 
             <NextLink href={'/#ensino'}>Ensino</NextLink>
 
+            <NextLink href={'/#estrutura'}>Estrutura</NextLink>
+
             <Link isExternal href="https://maps.app.goo.gl/hivg8RUcAw9GpnMn6">
               Localização
             </Link>
