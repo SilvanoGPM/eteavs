@@ -1,8 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Image, Text } from '@chakra-ui/react';
 import { CustomHeader } from './custom-header';
-import { Image } from '$components/image';
 
 export const components = {
   h1(props: any) {
@@ -35,6 +34,8 @@ export const components = {
     if (node.children[0]?.tagName === 'img') {
       const image = node.children[0];
 
+      console.log(image);
+
       return (
         <div>
           <Image
@@ -49,7 +50,34 @@ export const components = {
       );
     }
 
-    return <Text fontSize="md">{paragraph.children}</Text>;
+    const isCenter = node.properties.center !== undefined;
+    const iSpaceBetween = node.properties['space-between'] !== undefined;
+
+    let style;
+
+    if (isCenter) {
+      style = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        gap: '16px',
+      };
+    } else if (iSpaceBetween) {
+      style = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100%',
+        gap: '16px',
+      };
+    }
+
+    return (
+      <Text fontSize="md" {...style}>
+        {paragraph.children}
+      </Text>
+    );
   },
 
   ol(props: any) {

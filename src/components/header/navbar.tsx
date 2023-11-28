@@ -1,5 +1,6 @@
 import { Icon, Stack } from '@chakra-ui/react';
 import {
+  PiBuildingsFill,
   PiCameraFill,
   PiHouseLineFill,
   PiInfoFill,
@@ -14,7 +15,7 @@ import { ContentProps } from './content';
 const links = [
   {
     href: '/#home',
-    text: 'Página Inicial',
+    text: 'Início',
     icon: PiHouseLineFill,
     shouldMatchExactHref: true,
   },
@@ -23,6 +24,7 @@ const links = [
   { href: '/#ensino', text: 'Ensino', icon: PiPencilSimpleFill },
   { href: '/#blog', text: 'Blog', icon: PiNewspaperFill },
   { href: '/#galeria', text: 'Galeria', icon: PiCameraFill },
+  { href: '/#estrutura', text: 'Estrutura', icon: PiBuildingsFill },
 ];
 
 export function Navbar({ isLargeScreen }: ContentProps) {

@@ -5,10 +5,12 @@ import {
   Heading,
   Icon,
   Image,
+  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalFooter,
   ModalHeader,
   ModalOverlay,
   Spacer,
@@ -17,9 +19,8 @@ import {
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
-import { PiArrowRightBold } from 'react-icons/pi';
+import { PiArrowRightBold, PiCaretRightFill } from 'react-icons/pi';
 import { SlideFade } from './animations/slide-fade';
-import { Fade } from './animations/fade';
 
 interface TeachingCardProps {
   image: string;
@@ -72,8 +73,6 @@ export function TeachingCard({
         <Spacer />
 
         <Button
-          as={Fade}
-          delay={1000}
           variant="customSolid"
           mx="4"
           mb={{ base: '4', md: '8' }}
@@ -96,7 +95,31 @@ export function TeachingCard({
             </Heading>
           </ModalHeader>
 
-          <ModalBody>{body}</ModalBody>
+          <ModalBody
+            sx={{
+              img: {
+                display: 'inline-block',
+              },
+            }}
+          >
+            {body}
+          </ModalBody>
+
+          <ModalFooter>
+            <Button
+              as={Link}
+              w="full"
+              isExternal
+              href="https://sisacad.educacao.pe.gov.br/sissel/"
+              size={{ base: 'sm', sm: 'md' }}
+              variant="customSolid"
+              rightIcon={<Icon as={PiCaretRightFill} />}
+              filter="auto"
+              _hover={{ textDecor: 'none', brightness: '0.9' }}
+            >
+              Inscreva-se aqui
+            </Button>
+          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

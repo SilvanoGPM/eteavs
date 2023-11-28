@@ -26,7 +26,7 @@ export function mountSx({
     maxW: '70%',
     position: 'absolute',
     left: '50% !important',
-    bottom: '10px !important',
+    top: '10px !important',
     transform: 'translateX(-50%)',
     ...pagination,
   };
@@ -41,15 +41,15 @@ export function mountSx({
   };
 
   const swiperPaginationBulletActive = {
-    background: 'green',
+    background: 'blue.900',
     opacity: '0.8',
     ...paginationBulletActive,
   };
 
   const swiperButton = {
     color: 'white',
-    bg: 'green',
-    borderColor: 'green',
+    bg: 'blue.900',
+    borderColor: 'blue.900',
     borderWidth: '1px',
     borderRadius: '50%',
     boxSize: '25px',

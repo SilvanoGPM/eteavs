@@ -75,7 +75,9 @@ export function NewsLink({ news, isSmall = false, ...props }: NewsLinkProps) {
           title={news.title}
           fontSize={{ base: isSmall ? 'md' : 'xl', md: isSmall ? 'md' : '2xl' }}
         >
-          {news.title.length > 100 ? news.title.slice(100) + '...' : news.title}
+          {news.title.length > 100
+            ? news.title.slice(0, 100) + '...'
+            : news.title}
         </Heading>
       </Flex>
     </Flex>
