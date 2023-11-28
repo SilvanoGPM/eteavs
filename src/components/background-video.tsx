@@ -22,8 +22,9 @@ export function BackgroundVideo() {
       }}
     >
       <ReactPlayer
-        url="/assets/bg.mp4#t=0.1"
+        url="/assets/bg.mp4?v=2"
         playing
+        playbackRate={0.75}
         loop
         muted
         playsinline

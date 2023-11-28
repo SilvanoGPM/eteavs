@@ -2,7 +2,7 @@
   "name": "Escola Técnica Estadual Ariano Vilar Suassuna",
   "description": "Site para a Escola Técnica Estadual Ariano Vilar Suassuna.",
   "short_name": "ETE AVS",
-  "theme_color": "#3182CE",
+  "theme_color": "#1A365D",
   "background_color": "#FFFFFF",
   "start_url": "/",
   "display": "standalone",

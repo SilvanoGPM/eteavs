@@ -8,8 +8,7 @@ import { DefaultContainer } from '$components/default-container';
 import { SlideFade } from '$components/animations/slide-fade';
 import { ScrollButton } from '$components/scroll-button';
 
-import student1Img from '$assets/images/student1.png';
-import student2Img from '$assets/images/student2.png';
+import studentsImg from '$assets/images/students.png';
 
 interface HeroProps {
   introduction: string;
@@ -72,25 +71,12 @@ export function Hero({ introduction }: HeroProps) {
         </Flex>
 
         <Image
-          src={student1Img.src}
-          alt="Student"
-          pos="absolute"
-          zIndex="3"
-          right="0"
-          bottom={{ base: '-17px', lg: '-27px' }}
-          transform="auto"
-          scale="0.9"
-          maxW={['250px', '250px', '250px', '400px']}
-          display={['none', 'none', 'block']}
-        />
-
-        <Image
-          src={student2Img.src}
+          src={studentsImg.src}
           alt="Student"
           pos="absolute"
           zIndex="2"
-          right="20"
-          maxW={['250px', '250px', '250px', '400px']}
+          right={{ base: '0', lg: '0' }}
+          maxW={{ base: '250px', lg: '380px' }}
           display={['none', 'none', 'block']}
         />
       </Flex>

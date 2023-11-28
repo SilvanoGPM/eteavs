@@ -17,7 +17,7 @@ export default function Document() {
           content="Site para a Escola Técnica Estadual Ariano Vilar Suassuna"
         />
 
-        <meta name="theme-color" content="#3182CE" />
+        <meta name="theme-color" content="#1A365D" />
       </Head>
 
       <body>
