@@ -86,8 +86,8 @@ export function Hero({ introduction }: HeroProps) {
           alt="Student"
           pos="absolute"
           zIndex="2"
-          right={{ base: '0', lg: '0' }}
-          maxW={{ base: '250px', lg: '380px' }}
+          right={{ base: '0', lg: '8' }}
+          maxW={{ base: '250px', lg: '300px' }}
           display={['none', 'none', 'block']}
         />
       </Flex>

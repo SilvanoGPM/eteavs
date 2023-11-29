@@ -18,6 +18,16 @@ export default function Home(props: HomeTemplateProps) {
           site: '@site',
           cardType: 'summary_large_image',
         }}
+        openGraph={{
+          images: [
+            {
+              url: 'https://eteavs.vercel.app/cover.jpg',
+              width: 1280,
+              height: 720,
+              alt: 'Escola Técnica Estadual Ariano Vilar Suassuna',
+            },
+          ],
+        }}
       />
 
       <DefaultLayout>
