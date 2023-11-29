@@ -7,6 +7,7 @@ import { useCallback, useState } from 'react';
 import { PiCalendarBlank, PiMagnifyingGlassPlusFill } from 'react-icons/pi';
 
 import { Fade } from '$components/animations/fade';
+import { DefaultContainer } from '$components/default-container';
 import 'yet-another-react-lightbox/styles.css';
 import { PhotoLightbox } from './photo-lightbox';
 
@@ -43,14 +44,7 @@ export function PhotoTemplate({ photo }: PhotoTemplateProps) {
     <>
       <Flex h="50px" w="full" display={{ base: 'block', lg: 'none' }} />
 
-      <Flex
-        direction="column"
-        maxW="1400px"
-        mx="auto"
-        w="full"
-        py="16"
-        px={{ base: '4', md: '8', lg: '16' }}
-      >
+      <Flex as={DefaultContainer} direction="column" w="full" py="16">
         <Flex direction="column" mb="4">
           <Fade delay={300}>
             <Heading maxW="100%" fontSize="2xl" title={photo.title}>

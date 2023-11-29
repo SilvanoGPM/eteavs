@@ -9,7 +9,7 @@ import { useHeaderFilled } from '$hooks/use-header-filled';
 import { Gallery } from './components/gallery';
 import { News } from '$components/news-link';
 import { Photo } from '$components/photo-link';
-import { Structure } from './components/structure';
+import { Local, Structure } from './components/structure';
 
 export interface HomeTemplateProps {
   introduction: string;
@@ -17,6 +17,7 @@ export interface HomeTemplateProps {
   teaching: TeachingProps;
   news: News[];
   photos: Photo[];
+  locals: Local[];
 }
 
 export function HomeTemplate({
@@ -25,6 +26,7 @@ export function HomeTemplate({
   teaching,
   news,
   photos,
+  locals,
 }: HomeTemplateProps) {
   useHeaderFilled(false);
 
@@ -35,7 +37,7 @@ export function HomeTemplate({
       <Teaching {...teaching} />
       <Blog news={news} />
       <Gallery photos={photos} />
-      <Structure />
+      <Structure locals={locals} />
     </>
   );
 }

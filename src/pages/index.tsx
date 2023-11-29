@@ -2,6 +2,7 @@ import { DefaultLayout } from '$components/default-layout';
 import { GetHomeInfoDocument } from '$graphql/generated';
 import { request } from '$services/datocms/client';
 import { HomeTemplate, HomeTemplateProps } from '$templates/home';
+import { Local } from '$templates/home/components/structure';
 import { formatNewsLink } from '$utils/format-news-link';
 import { formatPhotosLink } from '$utils/format-photos-link';
 import { GetStaticProps } from 'next';
@@ -46,6 +47,12 @@ export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
   const news = formatNewsLink(data.allBlogs);
   const photos = formatPhotosLink(data.allPhotos);
 
+  const locals = data.allStructures.map<Local>((local) => ({
+    name: String(local.name),
+    description: String(local.description),
+    video: String(local.video?.url),
+  }));
+
   const props: HomeTemplateProps = {
     introduction: String(data.home?.introduction),
     aboutUs: String(data.home?.aboutUs),
@@ -68,6 +75,7 @@ export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
 
     news,
     photos,
+    locals,
   };
 
   return {

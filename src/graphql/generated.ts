@@ -1994,6 +1994,8 @@ export type Query = {
   _allBlogsMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
   _allPhotosMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allStructuresMeta: CollectionMetadata;
   /** Returns meta information regarding an assets collection */
   _allUploadsMeta: CollectionMetadata;
   /** Returns the single instance record */
@@ -2002,6 +2004,8 @@ export type Query = {
   allBlogs: Array<BlogRecord>;
   /** Returns a collection of records */
   allPhotos: Array<PhotoRecord>;
+  /** Returns a collection of records */
+  allStructures: Array<StructureRecord>;
   /** Returns a collection of assets */
   allUploads: Array<FileField>;
   /** Returns a specific record */
@@ -2010,6 +2014,8 @@ export type Query = {
   home?: Maybe<HomeRecord>;
   /** Returns a specific record */
   photo?: Maybe<PhotoRecord>;
+  /** Returns a specific record */
+  structure?: Maybe<StructureRecord>;
   /** Returns a specific asset */
   upload?: Maybe<FileField>;
 };
@@ -2025,6 +2031,13 @@ export type Query_AllBlogsMetaArgs = {
 /** The query root for this schema */
 export type Query_AllPhotosMetaArgs = {
   filter?: InputMaybe<PhotoModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** The query root for this schema */
+export type Query_AllStructuresMetaArgs = {
+  filter?: InputMaybe<StructureModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -2066,6 +2079,17 @@ export type QueryAllPhotosArgs = {
 
 
 /** The query root for this schema */
+export type QueryAllStructuresArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<StructureModelFilter>;
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<StructureModelOrderBy>>>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
+};
+
+
+/** The query root for this schema */
 export type QueryAllUploadsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<UploadFilter>;
@@ -2098,6 +2122,15 @@ export type QueryPhotoArgs = {
   filter?: InputMaybe<PhotoModelFilter>;
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<PhotoModelOrderBy>>>;
+};
+
+
+/** The query root for this schema */
+export type QueryStructureArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<StructureModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<StructureModelOrderBy>>>;
 };
 
 
@@ -2246,6 +2279,76 @@ export type StringMatchesFilter = {
   caseSensitive?: InputMaybe<Scalars['BooleanType']['input']>;
   pattern: Scalars['String']['input'];
   regexp?: InputMaybe<Scalars['BooleanType']['input']>;
+};
+
+export type StructureModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<StructureModelFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<StructureModelFilter>>>;
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  description?: InputMaybe<StringFilter>;
+  id?: InputMaybe<ItemIdFilter>;
+  name?: InputMaybe<StringFilter>;
+  video?: InputMaybe<FileFilter>;
+};
+
+export enum StructureModelOrderBy {
+  _createdAt_ASC = '_createdAt_ASC',
+  _createdAt_DESC = '_createdAt_DESC',
+  _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
+  _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
+  _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
+  _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
+  _publishedAt_ASC = '_publishedAt_ASC',
+  _publishedAt_DESC = '_publishedAt_DESC',
+  _status_ASC = '_status_ASC',
+  _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
+  _updatedAt_ASC = '_updatedAt_ASC',
+  _updatedAt_DESC = '_updatedAt_DESC',
+  description_ASC = 'description_ASC',
+  description_DESC = 'description_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
+  name_ASC = 'name_ASC',
+  name_DESC = 'name_DESC'
+}
+
+/** Record of type Structure (structure) */
+export type StructureRecord = RecordInterface & {
+  __typename?: 'StructureRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ItemId']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  video?: Maybe<FileField>;
+};
+
+
+/** Record of type Structure (structure) */
+export type StructureRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
 export type Tag = {
@@ -2647,7 +2750,7 @@ export type GetHomeInfoQueryVariables = Exact<{
 }>;
 
 
-export type GetHomeInfoQuery = { __typename?: 'Query', home?: { __typename?: 'HomeRecord', introduction?: string | null, aboutUs?: string | null, teachingEmResume?: string | null, teachingEm?: string | null, teachingSubResume?: string | null, teachingSub?: string | null, teachingEadResume?: string | null, teachingEad?: string | null } | null, allBlogs: Array<{ __typename?: 'BlogRecord', slug?: string | null, _createdAt: string, title?: string | null, thumbnail?: { __typename?: 'FileField', url: string } | null }>, allPhotos: Array<{ __typename?: 'PhotoRecord', slug?: string | null, _createdAt: string, title?: string | null, thumbnail?: { __typename?: 'FileField', url: string } | null }> };
+export type GetHomeInfoQuery = { __typename?: 'Query', home?: { __typename?: 'HomeRecord', introduction?: string | null, aboutUs?: string | null, teachingEmResume?: string | null, teachingEm?: string | null, teachingSubResume?: string | null, teachingSub?: string | null, teachingEadResume?: string | null, teachingEad?: string | null } | null, allBlogs: Array<{ __typename?: 'BlogRecord', slug?: string | null, _createdAt: string, title?: string | null, thumbnail?: { __typename?: 'FileField', url: string } | null }>, allPhotos: Array<{ __typename?: 'PhotoRecord', slug?: string | null, _createdAt: string, title?: string | null, thumbnail?: { __typename?: 'FileField', url: string } | null }>, allStructures: Array<{ __typename?: 'StructureRecord', name?: string | null, description?: string | null, video?: { __typename?: 'FileField', url: string } | null }> };
 
 export type FindNewsQueryVariables = Exact<{
   first?: InputMaybe<Scalars['IntType']['input']>;
@@ -2680,7 +2783,7 @@ export type GetPhotoQueryVariables = Exact<{
 export type GetPhotoQuery = { __typename?: 'Query', photo?: { __typename?: 'PhotoRecord', slug?: string | null, _createdAt: string, _updatedAt: string, title?: string | null, description?: string | null, thumbnail?: { __typename?: 'FileField', url: string, alt?: string | null } | null, images: Array<{ __typename?: 'FileField', url: string }> } | null };
 
 
-export const GetHomeInfoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getHomeInfo"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"newsFirst"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"photosFirst"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"home"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"introduction"}},{"kind":"Field","name":{"kind":"Name","value":"aboutUs"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEmResume"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEm"}},{"kind":"Field","name":{"kind":"Name","value":"teachingSubResume"}},{"kind":"Field","name":{"kind":"Name","value":"teachingSub"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEadResume"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEad"}}]}},{"kind":"Field","name":{"kind":"Name","value":"allBlogs"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"newsFirst"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"EnumValue","value":"_createdAt_DESC"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"_createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"allPhotos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"photosFirst"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"EnumValue","value":"_createdAt_DESC"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"_createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<GetHomeInfoQuery, GetHomeInfoQueryVariables>;
+export const GetHomeInfoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getHomeInfo"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"newsFirst"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"photosFirst"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"home"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"introduction"}},{"kind":"Field","name":{"kind":"Name","value":"aboutUs"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEmResume"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEm"}},{"kind":"Field","name":{"kind":"Name","value":"teachingSubResume"}},{"kind":"Field","name":{"kind":"Name","value":"teachingSub"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEadResume"}},{"kind":"Field","name":{"kind":"Name","value":"teachingEad"}}]}},{"kind":"Field","name":{"kind":"Name","value":"allBlogs"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"newsFirst"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"EnumValue","value":"_createdAt_DESC"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"_createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"allPhotos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"photosFirst"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"EnumValue","value":"_createdAt_DESC"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"_createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"allStructures"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<GetHomeInfoQuery, GetHomeInfoQueryVariables>;
 export const FindNewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"findNews"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"skip"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allBlogs"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}},{"kind":"Argument","name":{"kind":"Name","value":"skip"},"value":{"kind":"Variable","name":{"kind":"Name","value":"skip"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"EnumValue","value":"_createdAt_DESC"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"_createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"_updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"resume"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"_allBlogsMeta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"count"}}]}}]}}]} as unknown as DocumentNode<FindNewsQuery, FindNewsQueryVariables>;
 export const GetNewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getNews"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"blog"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"_createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"_updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"resume"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}}]}}]}}]} as unknown as DocumentNode<GetNewsQuery, GetNewsQueryVariables>;
 export const FindPhotosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"findPhotos"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"skip"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"IntType"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allPhotos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}},{"kind":"Argument","name":{"kind":"Name","value":"skip"},"value":{"kind":"Variable","name":{"kind":"Name","value":"skip"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"EnumValue","value":"_createdAt_DESC"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"_createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"_updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"images"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"_allPhotosMeta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"count"}}]}}]}}]} as unknown as DocumentNode<FindPhotosQuery, FindPhotosQueryVariables>;

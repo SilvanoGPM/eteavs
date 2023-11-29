@@ -3,7 +3,17 @@ import { Slide, Slider } from '$components/slider';
 import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react';
 import ReactPlayer from 'react-player/lazy';
 
-export function Structure() {
+export interface Local {
+  name: string;
+  description: string;
+  video: string;
+}
+
+interface StructureProps {
+  locals: Local[];
+}
+
+export function Structure({ locals }: StructureProps) {
   const settings = {
     draggable: true,
     loop: true,
@@ -69,9 +79,9 @@ export function Structure() {
         }}
       >
         <Slider w="full" settings={settings} onSlideChange={handleSlideChange}>
-          {[1, 2, 3, 4, 5].map((image) => {
+          {locals.map((local) => {
             return (
-              <Slide key={image} className="slide">
+              <Slide key={local.name} className="slide">
                 <Center
                   bg="white"
                   boxShadow="xl"
@@ -82,7 +92,8 @@ export function Structure() {
                 >
                   <ReactPlayer
                     data-js="structure-video"
-                    url="/assets/bg.mp4#t=0.1"
+                    url={local.video}
+                    title={local.name}
                     controls
                     pip
                     width="100%"
@@ -90,11 +101,11 @@ export function Structure() {
                   />
 
                   <Heading fontSize="2xl" mt="4" textAlign="center">
-                    Laboratório de Informática
+                    {local.name}
                   </Heading>
 
                   <Text color="gray.500" textAlign="center" maxW="500px">
-                    Espaço para aprimoramento tecnologico
+                    {local.description}
                   </Text>
                 </Center>
               </Slide>

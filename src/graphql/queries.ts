@@ -33,6 +33,14 @@ export const GET_HOME_INFO = gql`
         url
       }
     }
+
+    allStructures {
+      name
+      description
+      video {
+        url
+      }
+    }
   }
 `;
 
