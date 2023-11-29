@@ -27,6 +27,7 @@ export function mountSx({
     position: 'absolute',
     left: '50% !important',
     top: '10px !important',
+    bottom: 'unset !important',
     transform: 'translateX(-50%)',
     ...pagination,
   };
@@ -52,14 +53,14 @@ export function mountSx({
     borderColor: 'blue.900',
     borderWidth: '1px',
     borderRadius: '50%',
-    boxSize: '25px',
+    boxSize: { base: '25px', md: '50px' },
     position: 'absolute',
     zIndex: '10',
-    top: '50%',
+    top: { base: '10%', md: '50%' },
     ...button,
 
     '&::after': {
-      fontSize: 'x-small',
+      fontSize: { base: 'x-small', md: 'lg' },
       buttonContent,
     },
   };

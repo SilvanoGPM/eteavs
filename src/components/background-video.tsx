@@ -22,12 +22,12 @@ export function BackgroundVideo() {
       }}
     >
       <ReactPlayer
+        playsinline
+        webkit-playsinline
         url="/assets/bg.mp4?v=2"
         playing
         loop
         muted
-        playsinline
-        webkit-playsinline
         controls={false}
         pip={false}
         volume={0}

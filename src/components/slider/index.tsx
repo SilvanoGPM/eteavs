@@ -1,11 +1,11 @@
 import { Box, BoxProps } from '@chakra-ui/react';
-import { A11y, Navigation, Pagination } from 'swiper';
+import { A11y, EffectCreative, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
+import 'swiper/css/effect-creative';
 
 import { mountSx, MountSxParams } from './mount-sx';
 
@@ -41,7 +41,7 @@ export function Slider({
     <Box
       as={Swiper}
       style={style}
-      modules={[Navigation, Pagination, A11y]}
+      modules={[Navigation, Pagination, A11y, EffectCreative]}
       sx={mountSx(swiperComponents)}
       {...props}
       {...settings}

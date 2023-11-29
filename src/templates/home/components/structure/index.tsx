@@ -11,9 +11,26 @@ export function Structure() {
     pagination: { clickable: true },
     slidesPerView: 1,
     spaceBetween: 0,
-    effect: 'fade',
-    speed: 500,
+    grabCursor: true,
+    effect: 'creative',
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -400],
+      },
+      next: {
+        translate: ['100%', 0, 0],
+      },
+    },
   };
+
+  function handleSlideChange() {
+    const videos = document.querySelectorAll<HTMLVideoElement>(
+      '[data-js="structure-video"] video',
+    );
+
+    videos.forEach((video) => video.pause());
+  }
 
   return (
     <Flex
@@ -37,10 +54,12 @@ export function Structure() {
       <Flex
         mt="8"
         pb="8"
+        w="full"
         maxW="900px"
         mx="auto"
         flexDir="column"
         align="center"
+        p="4"
         sx={{
           '.slide': {
             display: 'flex',
@@ -49,17 +68,20 @@ export function Structure() {
           },
         }}
       >
-        <Slider w="full" settings={settings}>
+        <Slider w="full" settings={settings} onSlideChange={handleSlideChange}>
           {[1, 2, 3, 4, 5].map((image) => {
             return (
               <Slide key={image} className="slide">
                 <Center
+                  bg="white"
+                  boxShadow="xl"
                   flexDirection="column"
                   w="full"
                   h="full"
                   sx={{ video: { objectFit: 'cover' } }}
                 >
                   <ReactPlayer
+                    data-js="structure-video"
                     url="/assets/bg.mp4#t=0.1"
                     controls
                     pip
@@ -70,6 +92,7 @@ export function Structure() {
                   <Heading fontSize="2xl" mt="4" textAlign="center">
                     Laboratório de Informática
                   </Heading>
+
                   <Text color="gray.500" textAlign="center" maxW="500px">
                     Espaço para aprimoramento tecnologico
                   </Text>
