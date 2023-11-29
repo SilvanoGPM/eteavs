@@ -14,7 +14,7 @@ export default function Document() {
 
         <meta
           name="description"
-          content="Site para a Escola Técnica Estadual Ariano Vilar Suassuna"
+          content="A 43ª Escola Técnica Estadual (ETE) inaugurada em 5 de julho de 2018, e a primeira de Garanhuns, possuindo ensino médio integrado, subsequente e a distância."
         />
 
         <meta name="theme-color" content="#1A365D" />

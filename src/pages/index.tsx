@@ -12,7 +12,7 @@ export default function Home(props: HomeTemplateProps) {
     <>
       <NextSeo
         title="Escola Técnica Estadual Ariano Vilar Suassuna"
-        description="Site para a Escola Técnica Estadual Ariano Vilar Suassuna"
+        description="A 43ª Escola Técnica Estadual (ETE) inaugurada em 5 de julho de 2018, e a primeira de Garanhuns, possuindo ensino médio integrado, subsequente e a distância."
         twitter={{
           handle: '@handle',
           site: '@site',
